@@ -31,14 +31,14 @@ export default tseslint.config(
       'no-unused-vars': 'off',
       'no-console': 'warn', // console.log, console.error, etc.
       'no-lonely-if': 'warn', // lonely if statements
-      'no-duplicate-imports': 'warn', // duplicate imports
+      'no-duplicate-imports': 'error', // duplicate imports
       'no-empty': 'error', // empty blocks
       'no-undef': 'error', // undefined variables
       'no-const-assign': 'error', // reassigning const variables
       'no-multi-spaces': 'warn', // multiple spaces
       'space-before-blocks': ['warn', 'always'], // space before blocks
       'object-curly-spacing': ['warn', 'always'], // object curly spacing
-      'array-bracket-spacing': ['warn', 'always'], // array bracket spacing
+      // 'array-bracket-spacing': ['warn', 'always'], // array bracket spacing
       indent: ['warn', 2], // tab size
       semi: ['error', 'never'], // semicolon ";"
       quotes: ['error', 'single'], // quotes 'single' or "double"
@@ -76,10 +76,8 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': 'warn', // unused variables
       '@typescript-eslint/no-explicit-any': 'warn', // "any" typing
       '@typescript-eslint/no-non-null-assertion': 'warn', // non-null assertion operator (!)
-    },
-  },
-  {
-    rules: {
+
+      // Move prettier rules here, in the same config object where the plugin is defined
       'prettier/prettier': [
         'warn',
         {

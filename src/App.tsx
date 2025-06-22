@@ -3,6 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 import './App.css'
+import Button from '~/components/btn'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,9 +18,7 @@ function App() {
   console.log('test', test)
 
   if (count === 0) {
-  } else {
-    if (count === 1) {
-    }
+  } else if (count === 1) {
   }
 
   console.log('count', count)
@@ -27,6 +26,7 @@ function App() {
   return (
     <div>
       <p>TEST</p>
+      <Button />
     </div>
   )
 }

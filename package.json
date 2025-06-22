@@ -1,5 +1,5 @@
 {
-  "name": "portfoliov3",
+  "name": "portfolio-v3",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -7,6 +7,9 @@
     "dev": "vite --host",
     "build": "tsc -b && vite build --base=./",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prettier": "prettier --check \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
+    "prettier:fix": "prettier --write \"src/**/(*.tsx|*.ts|*.css|*.scss)\"",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -16,6 +19,7 @@
   "devDependencies": {
     "@babel/core": "^7.27.4",
     "@eslint/js": "^9.25.0",
+    "@types/node": "^24.0.3",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react-swc": "^3.10.2",
