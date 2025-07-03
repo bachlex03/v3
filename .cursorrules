@@ -1,0 +1,132 @@
+# Cursor Rules for Portfolio v3
+
+## Project Overview
+This is a React TypeScript portfolio website built with Vite. The project showcases personal work, skills, and experience with a modern, performant web application.
+
+## Tech Stack
+- **Framework**: React 18+ with TypeScript
+- **Build Tool**: Vite
+- **Styling**: CSS Modules / Tailwind CSS (specify your preference)
+- **Package Manager**: Yarn
+- **Linting**: ESLint with TypeScript support
+
+## Code Style Guidelines
+
+### TypeScript
+- Use TypeScript strict mode
+- Prefer interfaces over types for object shapes
+- Use explicit return types for functions
+- Avoid `any` type - use `unknown` if type is truly unknown
+- Use const assertions where appropriate
+
+### React Components
+- Use functional components with hooks exclusively
+- Prefer named exports for components
+- Component files should be in PascalCase (e.g., `Button.tsx`, `Header.tsx`)
+- Keep components small and focused on a single responsibility
+- Use custom hooks for reusable logic
+
+### File Structure
+```
+src/
+  components/     # Reusable UI components
+  pages/          # Page-level components
+  hooks/          # Custom React hooks
+  utils/          # Utility functions
+  types/          # TypeScript type definitions
+  styles/         # Global styles and themes
+  assets/         # Images, fonts, etc.
+```
+
+### Naming Conventions
+- Components: PascalCase (e.g., `NavigationBar`)
+- Files: PascalCase for components, camelCase for utilities
+- Variables/Functions: camelCase
+- Constants: UPPER_SNAKE_CASE
+- CSS Classes: kebab-case or use CSS Modules
+
+### Best Practices
+1. **Performance**
+   - Use React.memo for expensive components
+   - Implement lazy loading for routes
+   - Optimize images and assets
+   - Use proper key props in lists
+
+2. **Accessibility**
+   - Include proper ARIA labels
+   - Ensure keyboard navigation works
+   - Maintain proper heading hierarchy
+   - Test with screen readers
+
+3. **State Management**
+   - Use local state when possible
+   - Consider Context API for cross-component state
+   - Avoid prop drilling
+
+4. **Error Handling**
+   - Implement error boundaries
+   - Handle async errors properly
+   - Provide user-friendly error messages
+
+### Component Template
+```typescript
+import { FC } from 'react';
+
+interface ComponentNameProps {
+  // Define props here
+}
+
+export const ComponentName: FC<ComponentNameProps> = ({ ...props }) => {
+  // Component logic here
+  
+  return (
+    <div>
+      {/* JSX content */}
+    </div>
+  );
+};
+```
+
+### Testing Guidelines
+- Write unit tests for utility functions
+- Test component behavior, not implementation
+- Use React Testing Library
+- Aim for meaningful coverage, not 100%
+
+### Git Commit Messages
+- Use conventional commits format
+- Examples:
+  - `feat: add contact form component`
+  - `fix: resolve navigation menu overflow`
+  - `docs: update README with deployment steps`
+  - `style: format code with prettier`
+  - `refactor: simplify portfolio grid logic`
+
+### Performance Considerations
+- Lazy load images and heavy components
+- Minimize bundle size
+- Use production builds for deployment
+- Implement proper caching strategies
+
+### Security
+- Sanitize user inputs
+- Use environment variables for sensitive data
+- Implement proper CORS policies
+- Keep dependencies updated
+
+## DO NOT
+- Use class components
+- Commit sensitive information
+- Use inline styles extensively
+- Ignore TypeScript errors
+- Skip accessibility requirements
+- Create overly complex components
+- Use deprecated React patterns
+
+## Additional Notes
+- This is a portfolio site, so prioritize:
+  - Visual appeal and smooth animations
+  - Fast loading times
+  - Mobile responsiveness
+  - SEO optimization
+  - Professional presentation
