@@ -1,74 +1,45 @@
-import { useState } from 'react'
-import Button from '~/components/btn'
+/* eslint-disable no-console */
+import { useEffect, type FC, type ReactNode } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+
+import routes from '~/routes'
+import { DefaultLayout } from './components/Layouts'
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  const test = (param: any) => { }
-
-  const obj = {
-    name: 'John',
-    age: 30,
-  }
-
-  console.log('test', test)
-
-  console.log('count', count)
-
-  const toggleDarkMode = () => {
-    const rootElement = document.getElementById('rootElement')
-    if (rootElement) {
-      rootElement.classList.toggle('dark')
-    }
-  }
+  useEffect(() => {
+    console.log('App rendered')
+  }, [])
 
   return (
-    <div id='rootElement' className='bg-background dark:bg-background'>
-      <p className='font-calibre'>TESTttt</p>
-      <p className='font-inter'>TESTttt</p>
-      <p className='font-mono'>TESTttt</p>
-      <p className='bg-card'>TESTttt</p>
-      <Button />
+    <Router>
+      <Routes>
+        {routes.map((route, index) => {
+          const Page = route.component
 
-      <button onClick={toggleDarkMode}>
-        Toggle
-      </button>
-    </div>
+          let Layout: FC<{
+            children: ReactNode
+          }> = DefaultLayout
+
+          if (route.layout) {
+            Layout = route.layout as FC<{
+              children: ReactNode
+            }>
+          }
+
+          return (
+            <Route
+              key={index}
+              path={route.path}
+              element={
+                <Layout>
+                  <Page />
+                </Layout>
+              }
+            />
+          )
+        })}
+      </Routes>
+    </Router>
   )
 }
 export default App
-
-// Demo errors and warnings
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-// import viteLogo from '/vite.svg'
-// import './App.css'
-// import './App.css'
-// import Button from '~/components/btn'
-
-// function App() {
-//   const [count, setCount] = useState(0)
-
-//   const test = (param: any) => {}
-
-//   const obj = {
-//     name: 'John',
-//     age: 30,
-//   }
-
-//   console.log('test', test)
-
-//   if (count === 0) {
-//   } else if (count === 1) {
-//   }
-
-//   console.log('count', count)
-
-//   return (
-//     <div>
-//       <p>TEST</p>
-//       <Button />
-//     </div>
-//   )
-// }
-// export default App

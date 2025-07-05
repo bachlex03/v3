@@ -10,10 +10,10 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 
 1. [x] Setup base project structure: assets folder (contain e.g. fonts, images,...)
 2. [x] Setup Tailwind CSS (fonts, tailwind merge + clsx, tailwind animate, tailwind motion, tailwind, light/dark theme, custom screen breakpoint + color)
-3. [ ] Set up project routing with React Router
+3. [x] Set up project routing with React Router
 4. [ ] Create layout components (Header, Footer, Layout wrapper)
 5. [ ] Implement responsive navigation menu
-6. [ ] Set up CSS framework (Tailwind CSS or CSS Modules)
+6. [x] Set up CSS framework (Tailwind CSS or CSS Modules)
 7. [ ] Configure path aliases in TypeScript and Vite
 8. [ ] Create Homepage with Hero section
 9. [ ] Build Projects page with project grid
@@ -29,7 +29,7 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 16. [ ] Implement Loading/Spinner component
 17. [ ] Create Section wrapper component for consistent spacing
 18. [ ] Add smooth scrolling navigation
-19. [ ] Implement dark/light theme toggle
+19. [x] Implement dark/light theme toggle
 20. [ ] Add page transition animations
 21. [ ] Create typing animation for hero text
 22. [ ] Implement lazy loading for images
@@ -59,6 +59,9 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 - [x] Set up base project structure: eslint + husky + github action ci
 - [x] **Task #1**: Setup base project structure: assets folder (contain e.g. fonts, images,...)
 - [x] **Task #2**: Setup Tailwind CSS (fonts, tailwind merge + clsx, tailwind animate, tailwind motion, tailwind, light/dark theme, custom screen breakpoint + color)
+- [x] **Task #3**: Set up project routing with React Router
+- [x] **Task #6**: Set up CSS framework (Tailwind CSS or CSS Modules)
+- [x] **Task #19**: Implement dark/light theme toggle
 
 #### In Progress Tasks
 
@@ -153,7 +156,7 @@ _(No tasks currently in progress)_
 
 ### Next Task to Implement
 
-**Current Priority**: Set up project routing with React Router (Task #3)
+**Current Priority**: Create layout components (Header, Footer, Layout wrapper) (Task #4)
 
 ## Notes
 

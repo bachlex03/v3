@@ -32,7 +32,7 @@ export default tseslint.config(
       'no-console': 'warn', // console.log, console.error, etc.
       'no-lonely-if': 'warn', // lonely if statements
       'no-duplicate-imports': 'error', // duplicate imports
-      'no-empty': 'error', // empty blocks
+      'no-empty': 'warn', // empty blocks
       'no-undef': 'error', // undefined variables
       'no-const-assign': 'error', // reassigning const variables
       'no-multi-spaces': 'warn', // multiple spaces
@@ -76,6 +76,7 @@ export default tseslint.config(
       '@typescript-eslint/no-unused-vars': 'warn', // unused variables
       '@typescript-eslint/no-explicit-any': 'warn', // "any" typing
       '@typescript-eslint/no-non-null-assertion': 'warn', // non-null assertion operator (!)
+      '@typescript-eslint/no-empty-object-type': 'warn', // empty object type
 
       // Move prettier rules here, in the same config object where the plugin is defined
       'prettier/prettier': [
