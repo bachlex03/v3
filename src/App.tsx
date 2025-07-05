@@ -1,11 +1,10 @@
 import { useState } from 'react'
-import './App.css'
 import Button from '~/components/btn'
 
 function App() {
   const [count, setCount] = useState(0)
 
-  const test = (param: any) => {}
+  const test = (param: any) => { }
 
   const obj = {
     name: 'John',
@@ -16,10 +15,24 @@ function App() {
 
   console.log('count', count)
 
+  const toggleDarkMode = () => {
+    const rootElement = document.getElementById('rootElement')
+    if (rootElement) {
+      rootElement.classList.toggle('dark')
+    }
+  }
+
   return (
-    <div>
-      <p>TEST</p>
+    <div id='rootElement' className='bg-background dark:bg-background'>
+      <p className='font-calibre'>TESTttt</p>
+      <p className='font-inter'>TESTttt</p>
+      <p className='font-mono'>TESTttt</p>
+      <p className='bg-card'>TESTttt</p>
       <Button />
+
+      <button onClick={toggleDarkMode}>
+        Toggle
+      </button>
     </div>
   )
 }

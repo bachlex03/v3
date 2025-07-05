@@ -2,66 +2,86 @@
 
 A modern React TypeScript portfolio website showcasing projects, skills, and professional experience.
 
-## Completed Tasks
+## 📋 Task Management
+
+### Section 1: Tasks by Priority
+
+#### High Priority Tasks
+
+1. [x] Setup base project structure: assets folder (contain e.g. fonts, images,...)
+2. [x] Setup Tailwind CSS (fonts, tailwind merge + clsx, tailwind animate, tailwind motion, tailwind, light/dark theme, custom screen breakpoint + color)
+3. [ ] Set up project routing with React Router
+4. [ ] Create layout components (Header, Footer, Layout wrapper)
+5. [ ] Implement responsive navigation menu
+6. [ ] Set up CSS framework (Tailwind CSS or CSS Modules)
+7. [ ] Configure path aliases in TypeScript and Vite
+8. [ ] Create Homepage with Hero section
+9. [ ] Build Projects page with project grid
+10. [ ] Develop About page with professional info
+11. [ ] Implement Contact page with form
+
+#### Medium Priority Tasks
+
+12. [ ] Design and implement reusable Button component with variants
+13. [ ] Create Card component for project display
+14. [ ] Build Modal component for project details
+15. [ ] Develop Form components (Input, Textarea, Select)
+16. [ ] Implement Loading/Spinner component
+17. [ ] Create Section wrapper component for consistent spacing
+18. [ ] Add smooth scrolling navigation
+19. [ ] Implement dark/light theme toggle
+20. [ ] Add page transition animations
+21. [ ] Create typing animation for hero text
+22. [ ] Implement lazy loading for images
+23. [ ] Add scroll-triggered animations
+
+#### Low Priority Tasks
+
+24. [ ] Integrate GitHub API for live project data
+25. [ ] Add blog/articles section
+26. [ ] Implement multi-language support
+27. [ ] Create admin panel for content management
+28. [ ] Add visitor analytics
+29. [ ] Implement PWA features
+30. [ ] Optimize bundle size
+31. [ ] Set up CI/CD pipeline
+32. [ ] Configure SEO meta tags
+33. [ ] Implement sitemap generation
+34. [ ] Add Open Graph tags for social sharing
+35. [ ] Deploy to hosting platform (Vercel/Netlify)
+
+### Section 2: Tasks by Status
+
+#### Completed Tasks
 
 - [x] Initialize React + TypeScript + Vite project
-- [x] Set up basic project structure
-- [x] Configure TypeScript
-- [x] Create initial component (btn.tsx)
+- [x] Set up rules
+- [x] Set up base project structure: eslint + husky + github action ci
+- [x] **Task #1**: Setup base project structure: assets folder (contain e.g. fonts, images,...)
+- [x] **Task #2**: Setup Tailwind CSS (fonts, tailwind merge + clsx, tailwind animate, tailwind motion, tailwind, light/dark theme, custom screen breakpoint + color)
 
-## In Progress Tasks
+#### In Progress Tasks
 
-### High Priority - Core Structure
-- [ ] Set up project routing with React Router
-- [ ] Create layout components (Header, Footer, Layout wrapper)
-- [ ] Implement responsive navigation menu
-- [ ] Set up CSS framework (Tailwind CSS or CSS Modules)
-- [ ] Configure path aliases in TypeScript and Vite
+_(No tasks currently in progress)_
 
-### High Priority - Essential Pages
-- [ ] Create Homepage with Hero section
-- [ ] Build Projects page with project grid
-- [ ] Develop About page with professional info
-- [ ] Implement Contact page with form
+## Section 3: Implementation Plan
 
-## Future Tasks
+### Phase 1: Setup project structure (Current)
 
-### Medium Priority - Components
-- [ ] Design and implement reusable Button component with variants
-- [ ] Create Card component for project display
-- [ ] Build Modal component for project details
-- [ ] Develop Form components (Input, Textarea, Select)
-- [ ] Implement Loading/Spinner component
-- [ ] Create Section wrapper component for consistent spacing
+1. **Initialize project structure and styling system**
 
-### Medium Priority - Features
-- [ ] Add smooth scrolling navigation
-- [ ] Implement dark/light theme toggle
-- [ ] Add page transition animations
-- [ ] Create typing animation for hero text
-- [ ] Implement lazy loading for images
-- [ ] Add scroll-triggered animations
+   - Setup folders & files
+   - Setup fonts
 
-### Low Priority - Enhancements
-- [ ] Integrate GitHub API for live project data
-- [ ] Add blog/articles section
-- [ ] Implement multi-language support
-- [ ] Create admin panel for content management
-- [ ] Add visitor analytics
-- [ ] Implement PWA features
+2. **Styling System**
+   - Combine between Tailwind CSS, CSS Modules and SASS
+   - Set up global styles and CSS variables
+   - Create consistent spacing and color system
 
-### Deployment & Optimization
-- [ ] Optimize bundle size
-- [ ] Set up CI/CD pipeline
-- [ ] Configure SEO meta tags
-- [ ] Implement sitemap generation
-- [ ] Add Open Graph tags for social sharing
-- [ ] Deploy to hosting platform (Vercel/Netlify)
+### Phase 2: Foundation
 
-## Implementation Plan
-
-### Phase 1: Foundation (Current)
 1. **Routing & Navigation**
+
    - Install and configure React Router
    - Create route structure for all pages
    - Build responsive navigation component
@@ -71,19 +91,23 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
    - Set up global styles and CSS variables
    - Create consistent spacing and color system
 
-### Phase 2: Core Pages
+### Phase 3: Core Pages
+
 1. **Homepage**
+
    - Hero section with introduction
    - Skills showcase
    - Featured projects preview
    - Call-to-action for contact
 
 2. **Projects Page**
+
    - Grid layout for project cards
    - Filter by technology/category
    - Modal or detail view for each project
 
 3. **About Page**
+
    - Professional summary
    - Skills and technologies
    - Experience timeline
@@ -95,7 +119,8 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
    - Professional email
    - Optional: Calendar booking integration
 
-### Phase 3: Polish & Deploy
+### Phase 4: Polish & Deploy
+
 - Performance optimization
 - Accessibility improvements
 - Cross-browser testing
@@ -116,6 +141,19 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 - `src/styles/globals.css` - Global styles (to be created)
 - `src/hooks/useTheme.ts` - Theme management hook (to be created)
 - `src/utils/constants.ts` - App constants (to be created)
+
+## Task Management Rules
+
+### Current Workflow
+
+1. **One task at a time** - Chỉ làm 1 công việc tại một thời điểm
+2. **Mark as "current doing"** - Khi bắt đầu task, đánh dấu "current doing"
+3. **Move to In Progress** - Copy task sang phần "In Progress Tasks"
+4. **Mark completed** - Sau khi hoàn thành, thay đổi `[ ]` thành `[x]`
+
+### Next Task to Implement
+
+**Current Priority**: Set up project routing with React Router (Task #3)
 
 ## Notes
 

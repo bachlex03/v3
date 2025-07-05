@@ -1,0 +1,59 @@
+@import 'tailwindcss';
+@plugin 'tailwindcss-animate';
+@plugin 'tailwindcss-motion';
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+/* Defaut CSS */
+:root {
+  /* Variables */
+  --background: oklch(1 0 0);
+}
+
+@theme inline {
+  /* Breakpoints */
+  --breakpoint-sm: 480px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 976px;
+
+  /* Colors */
+  /* --color-primary: #000000; */
+  /* --color-primary-light: #111111; */
+  /* --color-primary-dark: #222222; */
+  /* --color-secondary: #ffffff; */
+  --color-background: var(--background);
+
+  /* Fonts */
+  /* Primary font stack */
+  --font-calibre:
+    'Calibre', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  /* Secondary font stack */
+  --font-inter:
+    'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+    'Droid Sans', 'Helvetica Neue', sans-serif;
+
+  /* Monospace font stack */
+  --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Consolas', 'Courier New', monospace;
+
+  /* Overrides default tailwind */
+  /* --color-gray-400: #a3a3a3; */
+}
+
+/* Dark mode */
+.dark {
+  --background: oklch(0.129 0.042 264.695);
+}
+
+/* Base styles */
+@layer base {
+  * {
+    @apply box-border;
+  }
+
+  body {
+    @apply bg-white text-black dark:bg-black dark:text-white;
+  }
+}
