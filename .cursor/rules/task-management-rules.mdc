@@ -1,0 +1,21 @@
+---
+description:
+globs:
+alwaysApply: false
+---
+# Task management rules
+
+## Overview
+There are 3 sections:
+- Section 1 includes:
+  High Priority Tasks
+  Medium Priority Tasks
+  Low Priority Tasks
+- Section 2 includes:
+  Completed Tasks
+  In Progress Tasks
+
+## Requirement
+- Just do 1 task at the time
+- Which task is in implemented then mark that task with "current doing" then copy that task and move to "In Progress Tasks" section
+- After done this task then mark task as completed by changing `[ ]` to `[x]`

@@ -1,7 +1,7 @@
 ---
 alwaysApply: true
+globs: *
 ---
-
 # Portfolio v3 Project Rules
 
 ## Project Overview
