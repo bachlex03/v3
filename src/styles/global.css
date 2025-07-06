@@ -4,6 +4,7 @@
 @tailwind utilities;
 
 @custom-variant dark (&:is(.dark *));
+@custom-variant light (&:is(.light *));
 
 /* Defaut CSS */
 :root {
@@ -44,7 +45,12 @@
 
 /* Dark mode */
 .dark {
-  --background: oklch(0.129 0.042 264.695);
+  --background: #0f182b;
+}
+
+/* Light mode */
+.light {
+  --background: #ffffff;
 }
 
 /* Base styles */
@@ -54,6 +60,6 @@
   }
 
   body {
-    @apply bg-white text-black dark:bg-black dark:text-white;
+    @apply bg-white text-black dark:bg-black dark:text-white font-inter;
   }
 }

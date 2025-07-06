@@ -49,6 +49,7 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 33. [ ] Implement sitemap generation
 34. [ ] Add Open Graph tags for social sharing
 35. [ ] Deploy to hosting platform (Vercel/Netlify)
+36. [ ] Experience Page
 
 ### Section 2: Tasks by Status
 
@@ -65,11 +66,11 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 
 #### In Progress Tasks
 
-_(No tasks currently in progress)_
+- [ ] **Task #36**: Experience Page
 
 ## Section 3: Implementation Plan
 
-### Phase 1: Setup project structure (Current)
+### Phase 1: Setup project structure (Completed)
 
 1. **Initialize project structure and styling system**
 
@@ -81,7 +82,7 @@ _(No tasks currently in progress)_
    - Set up global styles and CSS variables
    - Create consistent spacing and color system
 
-### Phase 2: Foundation
+### Phase 2: Foundation (Completed)
 
 1. **Routing & Navigation**
 
@@ -94,7 +95,7 @@ _(No tasks currently in progress)_
    - Set up global styles and CSS variables
    - Create consistent spacing and color system
 
-### Phase 3: Core Pages
+### Phase 3: Core Pages (Current)
 
 1. **Homepage**
 
@@ -156,7 +157,8 @@ _(No tasks currently in progress)_
 
 ### Next Task to Implement
 
-**Current Priority**: Create layout components (Header, Footer, Layout wrapper) (Task #4)
+**Current Phase**: Phase 3 - Core Pages
+**Current Priority**: Experience Page (Task #36 - In Progress)
 
 ## Notes
 

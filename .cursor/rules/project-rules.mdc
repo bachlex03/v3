@@ -35,6 +35,37 @@ This is a React TypeScript portfolio website built with Vite. The project showca
 - Keep components small and focused on a single responsibility
 - Use custom hooks for reusable logic
 
+### Import Guidelines
+
+**ALWAYS use alias imports instead of relative imports:**
+
+- ✅ **DO**: Use `~/` alias for all imports from src folder
+- ❌ **DON'T**: Use relative imports like `../../`, `../`, `./`
+
+**Examples:**
+
+```typescript
+// ✅ CORRECT - Use alias imports
+import { Button } from '~/components/Button'
+import { useMousePosition } from '~/hooks/useMousePosition'
+import { ILayoutProps } from '~/domain/ui/interfaces/ILayoutProps'
+import { DefaultLayout } from '~/components/Layouts'
+import routes from '~/routes'
+
+// ❌ INCORRECT - Avoid relative imports
+import { Button } from '../../components/Button'
+import { useMousePosition } from '../hooks/useMousePosition'
+import { ILayoutProps } from '../../../domain/ui/interfaces/ILayoutProps'
+import { DefaultLayout } from './components/Layouts'
+import routes from './routes'
+```
+
+**Alias Configuration:**
+
+- `~/*` maps to `src/*`
+- Configured in both `tsconfig.json` and `vite.config.ts`
+- Provides clean, consistent import paths regardless of file location
+
 ### File Structure
 
 The project follows this structure:
@@ -52,7 +83,10 @@ The project follows this structure:
 All components should follow this structure:
 
 ```typescript
-import { FC } from 'react';
+import { type FC } from 'react'
+import { SomeComponent } from '~/components/SomeComponent'
+import { useSomeHook } from '~/hooks/useSomeHook'
+import type { SomeType } from '~/types/SomeType'
 
 interface ComponentNameProps {
   // Define props here
@@ -65,8 +99,8 @@ export const ComponentName: FC<ComponentNameProps> = ({ ...props }) => {
     <div>
       {/* JSX content */}
     </div>
-  );
-};
+  )
+}
 ```
 
 ### Best Practices
@@ -117,6 +151,7 @@ Use conventional commits format:
 - Skip accessibility requirements
 - Create overly complex components
 - Use deprecated React patterns
+- **Use relative imports** - Always use `~/` alias instead
 
 ### Portfolio-Specific Priorities
 

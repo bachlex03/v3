@@ -1,0 +1,40 @@
+/* Mouse gradient effect styles */
+.mouse-gradient-container {
+  position: relative;
+  min-height: 100vh;
+  /* background: linear-gradient(to bottom, rgb(15, 23, 42), rgb(15, 23, 42) 50%, rgb(15, 23, 42)); */
+}
+
+.mouse-gradient-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 30;
+  transition: opacity 300ms ease;
+  will-change: background;
+}
+
+/* Optimize for better performance */
+.mouse-gradient-overlay {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Dark theme background */
+/* .dark-bg {
+  background: rgb(15, 23, 42);
+} */
+
+/* Selection styling to match the theme */
+/* ::selection {
+  background: rgba(29, 78, 216, 0.3);
+  color: rgb(226, 232, 240);
+}
+
+::-moz-selection {
+  background: rgba(29, 78, 216, 0.3);
+  color: rgb(226, 232, 240);
+} */
