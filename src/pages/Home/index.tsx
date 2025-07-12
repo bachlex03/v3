@@ -4,7 +4,7 @@ type HomePageProps = object
 
 const HomePage: FC<HomePageProps> = () => {
   return (
-    <div>
+    <div className='min-h-[2000px]'>
       <h1>Home Page</h1>
     </div>
   )

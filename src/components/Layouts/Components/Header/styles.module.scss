@@ -1,0 +1,11 @@
+.nav-list {
+  counter-reset: list-counter;
+}
+
+.nav-list li a::before {
+  counter-increment: list-counter;
+  content: '0' counter(list-counter) '.';
+  font-size: 0.75rem;
+  margin-right: 5px;
+  color: #64ffda;
+}

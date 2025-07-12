@@ -11,10 +11,10 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 1. [x] Setup base project structure: assets folder (contain e.g. fonts, images,...)
 2. [x] Setup Tailwind CSS (fonts, tailwind merge + clsx, tailwind animate, tailwind motion, tailwind, light/dark theme, custom screen breakpoint + color)
 3. [x] Set up project routing with React Router
-4. [ ] Create layout components (Header, Footer, Layout wrapper)
+4. [ ] Create layout components (Header, Footer, Layout wrapper) - **current doing**
 5. [ ] Implement responsive navigation menu
 6. [x] Set up CSS framework (Tailwind CSS or CSS Modules)
-7. [ ] Configure path aliases in TypeScript and Vite
+7. [x] Configure path aliases in TypeScript and Vite
 8. [ ] Create Homepage with Hero section
 9. [ ] Build Projects page with project grid
 10. [ ] Develop About page with professional info
@@ -53,6 +53,8 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 
 ### Section 2: Tasks by Status
 
+19
+
 #### Completed Tasks
 
 - [x] Initialize React + TypeScript + Vite project
@@ -64,10 +66,11 @@ A modern React TypeScript portfolio website showcasing projects, skills, and pro
 - [x] **Task #6**: Set up CSS framework (Tailwind CSS or CSS Modules)
 - [x] **Task #19**: Implement dark/light theme toggle
 - [x] **Task #36**: Experience Page
+- [x] **Task #7**: Configure path aliases in TypeScript and Vite
 
 #### In Progress Tasks
 
-- [ ] No tasks currently in progress
+- [ ] **Task #4**: Create layout components (Header, Footer, Layout wrapper) - **current doing**
 
 ## Section 3: Implementation Plan
 
