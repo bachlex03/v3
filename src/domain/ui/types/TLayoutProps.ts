@@ -1,5 +1,6 @@
 import { type ReactNode } from 'react'
 
-export interface ILayoutProps {
+export type TLayoutProps = {
   children: ReactNode
+  showHeader?: boolean
 }

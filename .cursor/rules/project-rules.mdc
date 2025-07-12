@@ -13,27 +13,66 @@ This is a React TypeScript portfolio website built with Vite. The project showca
 
 - **Framework**: React 18+ with TypeScript
 - **Build Tool**: Vite
-- **Styling**: CSS Modules / Tailwind CSS
+- **Styling**: CSS Modules / Tailwind CSS / SASS
 - **Package Manager**: Yarn
-- **Linting**: ESLint with TypeScript support
+- **Linting**: ESLint with TypeScript support / Prettier + Eslint
 
-## Code Style Guidelines
+## Strict AI instruction
 
 ### TypeScript
 
 - Use TypeScript strict mode
-- Prefer interfaces over types for object shapes
-- Use explicit return types for functions
+- Prefer types over interfaces for object shapes
 - Avoid `any` type - use `unknown` if type is truly unknown
-- Use const assertions where appropriate
 
 ### React Components
 
 - Use functional components with hooks exclusively
-- Prefer named exports for components
 - Component files should be in PascalCase (e.g., `Button.tsx`, `Header.tsx`)
 - Keep components small and focused on a single responsibility
 - Use custom hooks for reusable logic
+
+### Component Creation Guidelines
+
+1. **Directory Structure:**
+
+   ```bash
+   mkdir -p src/components/Customs/ComponentName
+   ```
+
+2. **File Structure:**
+
+   - File: `src/components/Customs/ComponentName/index.tsx`
+   - Use PascalCase for component name
+   - Follow the component template above
+
+3. **Component Template:**
+   All components should follow this structure:
+
+```typescript
+import { type FC } from 'react'
+
+type Props = object
+
+const ComponentName: FC<Props> = () => {
+    // Component logic here
+
+  return (
+    <div>
+      {/* JSX content */}
+    </div>
+  )
+}
+
+export default ComponentName
+```
+
+4. **Key Rules:**
+   - Use `type Props` instead of `interface`
+   - Extend HTML attributes when needed
+   - Use Tailwind CSS for styling
+   - Support `className` override
+   - Use alias imports: `import ComponentName from '~/components/Customs/ComponentName'`
 
 ### Import Guidelines
 
@@ -76,32 +115,7 @@ The project follows this structure:
 - [src/utils/](mdc:src/utils/) - Utility functions
 - [src/types/](mdc:src/types/) - TypeScript type definitions
 - [src/styles/](mdc:src/styles/) - Global styles and themes
-- [src/assets/](mdc:src/assets/) - Images, fonts, etc.
-
-### Component Template
-
-All components should follow this structure:
-
-```typescript
-import { type FC } from 'react'
-import { SomeComponent } from '~/components/SomeComponent'
-import { useSomeHook } from '~/hooks/useSomeHook'
-import type { SomeType } from '~/types/SomeType'
-
-interface ComponentNameProps {
-  // Define props here
-}
-
-export const ComponentName: FC<ComponentNameProps> = ({ ...props }) => {
-  // Component logic here
-
-  return (
-    <div>
-      {/* JSX content */}
-    </div>
-  )
-}
-```
+- [src/assets/](mdc:src/assets/) - Images, fonts, etc.no
 
 ### Best Practices
 
@@ -152,21 +166,3 @@ Use conventional commits format:
 - Create overly complex components
 - Use deprecated React patterns
 - **Use relative imports** - Always use `~/` alias instead
-
-### Portfolio-Specific Priorities
-
-Since this is a portfolio site, prioritize:
-
-- Visual appeal and smooth animations
-- Fast loading times
-- Mobile responsiveness
-- SEO optimization
-- Professional presentation
-
-### Key Files
-
-- [package.json](mdc:package.json) - Project dependencies and scripts
-- [vite.config.ts](mdc:vite.config.ts) - Vite configuration
-- [tsconfig.json](mdc:tsconfig.json) - TypeScript configuration
-- [src/App.tsx](mdc:src/App.tsx) - Main application component
-- [src/main.tsx](mdc:src/main.tsx) - Application entry point

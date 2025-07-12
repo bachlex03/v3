@@ -1,19 +1,21 @@
 /* eslint-disable no-console */
 import { useEffect, type FC } from 'react'
-import type { ILayoutProps } from '~/domain/ui/interfaces/ILayoutProps'
-import MouseGradientLayout from '~/components/Layouts/MouseGradientLayout'
-import Header from '~/components/Layouts/Components/Header'
+import MouseGradientLayout from '~/components/layouts/MouseGradientLayout'
+import Header from '~/components/layouts/_components/Header'
+import { type TLayoutProps } from '~/domain/ui/types/TLayoutProps'
 
-interface Props extends ILayoutProps {}
+type Props = TLayoutProps & {
+  showHeader?: boolean
+}
 
-const DefaultLayout: FC<Props> = ({ children }) => {
+const DefaultLayout: FC<Props> = ({ children, showHeader = true }) => {
   useEffect(() => {
     console.log('DefaultLayout rendered')
   }, [])
 
   return (
     <div className='dark bg-background min-h-screen'>
-      <Header />
+      {showHeader && <Header />}
       <MouseGradientLayout>{children}</MouseGradientLayout>
     </div>
   )

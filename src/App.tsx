@@ -1,9 +1,10 @@
 /* eslint-disable no-console */
-import { useEffect, type FC, type ReactNode } from 'react'
+import { useEffect, type FC } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import routes from '~/routes'
-import { DefaultLayout } from './components/Layouts'
+import { DefaultLayout } from './components/layouts'
+import type { TLayoutProps } from './domain/ui/types/TLayoutProps'
 
 function App() {
   useEffect(() => {
@@ -16,14 +17,10 @@ function App() {
         {routes.map((route, index) => {
           const Page = route.component
 
-          let Layout: FC<{
-            children: ReactNode
-          }> = DefaultLayout
+          let Layout: FC<TLayoutProps> = DefaultLayout
 
           if (route.layout) {
-            Layout = route.layout as FC<{
-              children: ReactNode
-            }>
+            Layout = route.layout as FC<TLayoutProps>
           }
 
           return (
@@ -31,7 +28,7 @@ function App() {
               key={index}
               path={route.path}
               element={
-                <Layout>
+                <Layout showHeader={route.showHeader}>
                   <Page />
                 </Layout>
               }
