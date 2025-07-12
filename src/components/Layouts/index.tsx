@@ -1,2 +1,2 @@
 export { default as DefaultLayout } from './DefaultLayout'
-export { default as ExperienceLayout } from './ExperienceLayout'
+export { default as HeaderOnlyLayout } from './HeaderOnlyLayout'

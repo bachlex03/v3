@@ -1,5 +1,5 @@
 import { type FC } from 'react'
-import Button from '~/components/customs/Button'
+import Button from '~/components/app/Button'
 
 type HomePageProps = object
 

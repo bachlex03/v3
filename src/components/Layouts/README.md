@@ -24,42 +24,17 @@ Layouts/
 └── [other-layouts]/           # Additional layout components
 ```
 
-## Available Layouts
-
-### DefaultLayout
-
-- **Purpose**: Standard layout for most pages
-- **Features**: Dark background, mouse gradient effect
-- **Usage**: Applied automatically to pages without specific layout
-
-### ExperienceLayout
-
-- **Purpose**: Specialized layout for experience/portfolio pages
-- **Features**: Custom styling for professional presentation
-
-### MouseGradient
-
-- **Purpose**: Creates interactive light effect following mouse cursor
-- **Features**: Radial gradient that follows mouse movement
-- **Usage**: Integrated into layouts for enhanced visual appeal
-
 ## Usage Example
 
 ```typescript
 // In routes.ts
-import { DefaultLayout } from '~/components/Layouts'
-import { ExperienceLayout } from '~/components/Layouts'
+import { DefaultLayout } from '~/components/layouts'
 
 const routes = [
   {
     path: '/',
     component: HomePage,
     layout: DefaultLayout,
-  },
-  {
-    path: '/experience',
-    component: ExperiencePage,
-    layout: ExperienceLayout,
   },
 ]
 ```
