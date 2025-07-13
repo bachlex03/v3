@@ -8,7 +8,9 @@ const HomePage: FC<HomePageProps> = () => {
     <div className='min-h-[2000px]'>
       <h1>Home Page</h1>
 
-      <Button variant='primary'>Click me</Button>
+      <Button variant='secondary' size='lg' className='mt-20'>
+        Click me 123
+      </Button>
     </div>
   )
 }

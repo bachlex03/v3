@@ -1,0 +1,206 @@
+---
+alwaysApply: true
+---
+
+# DO NOT Rules
+
+## Overview
+
+This document centralizes all "DO NOT" rules for the Portfolio v3 project to ensure consistency and prevent common mistakes.
+
+## React Components DO NOT
+
+### Component Structure
+
+- **DO NOT** use class components
+- **DO NOT** use inline styles extensively
+- **DO NOT** use deprecated React patterns
+- **DO NOT** create overly complex components
+- **DO NOT** forget to handle loading/error states
+- **DO NOT** ignore TypeScript errors
+- **DO NOT** skip accessibility requirements
+
+### File Organization
+
+- **DO NOT** use relative imports (`../../`, `../`, `./`)
+- **DO NOT** create deeply nested folder structures
+- **DO NOT** mix different component types in the same directory
+- **DO NOT** use inconsistent naming conventions
+
+### TypeScript
+
+- **DO NOT** use `any` type - use `unknown` if type is truly unknown
+- **DO NOT** use `interface` for props - prefer `type`
+- **DO NOT** ignore TypeScript strict mode
+- **DO NOT** use non-type imports when type imports are available
+
+### Styling
+
+- **DO NOT** use inline styles extensively
+- **DO NOT** use custom CSS variables unless necessary
+- **DO NOT** ignore responsive design
+- **DO NOT** skip color contrast compliance
+
+### Performance
+
+- **DO NOT** use inline functions in render
+- **DO NOT** forget proper key props in lists
+- **DO NOT** ignore bundle size optimization
+- **DO NOT** skip lazy loading when appropriate
+
+## Project Structure DO NOT
+
+### Import Guidelines
+
+- **DO NOT** use relative imports - Always use `~/` alias instead
+- **DO NOT** import from deep nested paths
+- **DO NOT** use inconsistent import patterns
+
+### File Naming
+
+- **DO NOT** use inconsistent naming conventions
+- **DO NOT** mix PascalCase and camelCase for components
+- **DO NOT** use generic names like "Component" or "Element"
+
+### Code Organization
+
+- **DO NOT** create deeply nested folder structures
+- **DO NOT** mix different concerns in the same file
+- **DO NOT** ignore separation of concerns
+
+## Development DO NOT
+
+### Git Practices
+
+- **DO NOT** commit sensitive information
+- **DO NOT** use non-descriptive commit messages
+- **DO NOT** ignore linting errors
+- **DO NOT** skip code reviews
+
+### Code Quality
+
+- **DO NOT** ignore ESLint warnings
+- **DO NOT** skip Prettier formatting
+- **DO NOT** write unreadable code
+- **DO NOT** ignore code duplication
+
+### Testing
+
+- **DO NOT** skip testing critical functionality
+- **DO NOT** ignore accessibility testing
+- **DO NOT** forget error boundary testing
+
+## Security DO NOT
+
+### Data Handling
+
+- **DO NOT** expose sensitive data in client-side code
+- **DO NOT** ignore input validation
+- **DO NOT** use unsafe HTML injection
+- **DO NOT** store sensitive data in localStorage
+
+### Authentication
+
+- **DO NOT** implement custom authentication without proper security review
+- **DO NOT** ignore token expiration
+- **DO NOT** skip CSRF protection
+
+## Accessibility DO NOT
+
+### ARIA and Semantics
+
+- **DO NOT** ignore proper ARIA labels
+- **DO NOT** skip keyboard navigation
+- **DO NOT** forget screen reader compatibility
+- **DO NOT** ignore focus management
+
+### Visual Design
+
+- **DO NOT** ignore color contrast requirements
+- **DO NOT** skip responsive design
+- **DO NOT** forget about users with disabilities
+
+## Performance DO NOT
+
+### Bundle Optimization
+
+- **DO NOT** ignore bundle size
+- **DO NOT** skip code splitting
+- **DO NOT** forget tree shaking
+- **DO NOT** ignore unused dependencies
+
+### Runtime Performance
+
+- **DO NOT** create memory leaks
+- **DO NOT** ignore re-render optimization
+- **DO NOT** skip lazy loading
+- **DO NOT** forget about mobile performance
+
+## Examples of What NOT to Do
+
+### ❌ Bad Examples
+
+```typescript
+// ❌ DON'T - Class component
+class Button extends React.Component {
+  render() {
+    return <button>Click me</button>
+  }
+}
+
+// ❌ DON'T - Relative imports
+import Button from '../../components/Button'
+
+// ❌ DON'T - Any type
+const handleClick = (data: any) => {
+  console.log(data)
+}
+
+// ❌ DON'T - Inline styles
+<div style={{ color: 'red', fontSize: '16px' }}>Text</div>
+
+// ❌ DON'T - Non-semantic HTML
+<div onClick={handleClick}>Click me</div>
+```
+
+### ✅ Good Examples
+
+```typescript
+// ✅ DO - Functional component
+const Button: FC<Props> = ({ children, ...props }) => {
+  return <button {...props}>{children}</button>
+}
+
+// ✅ DO - Alias imports
+import Button from '~/components/app/Button'
+
+// ✅ DO - Proper typing
+const handleClick = (data: ClickData) => {
+  console.log(data)
+}
+
+// ✅ DO - Tailwind classes
+<div className="text-red-500 text-base">Text</div>
+
+// ✅ DO - Semantic HTML
+<button onClick={handleClick}>Click me</button>
+```
+
+## Enforcement
+
+These rules should be enforced through:
+
+- ESLint configuration
+- Prettier formatting
+- Code review process
+- Automated testing
+- CI/CD pipeline checks
+
+## Reporting Violations
+
+When you encounter violations of these rules:
+
+1. Document the issue
+2. Suggest the correct approach
+3. Update documentation if needed
+4. Consider adding automated checks

@@ -83,14 +83,6 @@ touch src/components/layouts/ComponentName/index.tsx
 
 ```
 
-### 2. File Naming Conventions
-
-- **Components**: PascalCase (`Button.tsx`, `HomePage.tsx`)
-- **Hooks**: camelCase with `use` prefix (`useMousePosition.ts`)
-- **Utilities**: camelCase (`tw-merge.ts`)
-- **Types**: PascalCase with `T` prefix (`TLayoutProps.ts`)
-- **Pages**: PascalCase with `Page` suffix (`HomePage.tsx`)
-
 ### 3. Barrel Exports Pattern
 
 **Use index files for clean imports:**
@@ -123,38 +115,6 @@ import Button from '~/components/app/Button'
 import HomePage from '~/pages/Home'
 ```
 
-### 4. Route Management
-
-**Centralized Routing in `src/routes.ts`:**
-
-```typescript
-type Route = {
-  path: string
-  component: ComponentType
-  layout?: ComponentType<TLayoutProps>
-}
-
-const publicRoutes: Route[] = [
-  {
-    path: '/',
-    component: HomePage,
-    layout: HeaderOnlyLayout,
-  },
-  {
-    path: '/experience',
-    component: ExperiencePage,
-    layout: HeaderOnlyLayout,
-  },
-]
-```
-
-**Route Structure Rules:**
-
-- Define all routes in `src/routes.ts`
-- Separate public and private routes
-- Each route can have a specific layout
-- Use TypeScript for route type safety
-
 ### 5. Asset Management
 
 **Asset Organization:**
@@ -162,14 +122,6 @@ const publicRoutes: Route[] = [
 - **Images**: `src/assets/images/`
 - **Fonts**: `src/assets/fonts/`
 - **Other Assets**: `src/assets/`
-
-**Asset Export Pattern:**
-
-```typescript
-// src/assets/index.ts
-export { default as image1 } from './images/image-1.png'
-export { default as calibreFont } from './fonts/Calibre/Calibre-Regular.otf'
-```
 
 ### 6. Styling Structure
 
@@ -231,83 +183,3 @@ resolve: {
   }
 }
 ```
-
-## Import Guidelines
-
-### Always Use Alias Imports
-
-```typescript
-// ✅ CORRECT
-import { Button } from '~/components/app'
-import { useMousePosition } from '~/hooks/useMousePosition'
-import { TLayoutProps } from '~/domain/ui/types/TLayoutProps'
-import routes from '~/routes'
-
-// ❌ INCORRECT
-import { Button } from '../../components/app'
-import { useMousePosition } from '../hooks/useMousePosition'
-```
-
-### Barrel Export Usage
-
-```typescript
-// ✅ CORRECT - Import from barrel exports
-import { Button, Text, GlowCard } from '~/components/app'
-import { DefaultLayout, HeaderOnlyLayout } from '~/components/layouts'
-import { HomePage, ExperiencePage } from '~/pages'
-
-// ✅ CORRECT - Import specific component
-import Button from '~/components/app/Button'
-import Header from '~/components/layouts/_components/Header'
-```
-
-## Best Practices
-
-### 1. Component Structure
-
-- Keep components small and focused
-- Use functional components with hooks
-- Follow the component template pattern
-- Export components as default exports
-
-### 2. File Organization
-
-- One component per file
-- Use index.tsx for component files
-- Use index.ts for barrel exports
-- Keep related files together
-
-### 3. TypeScript Usage
-
-- Use strict TypeScript mode
-- Define proper types for all props
-- Use interfaces for complex object shapes
-- Avoid `any` type
-
-### 4. Performance
-
-- Use React.memo for expensive components
-- Implement lazy loading for routes
-- Optimize imports with barrel exports
-- Use proper key props in lists
-
-### 5. Accessibility
-
-- Include proper ARIA labels
-- Ensure keyboard navigation
-- Maintain heading hierarchy
-- Test with screen readers
-
-## DO NOT
-
-- Use relative imports (`../../`, `../`, `./`)
-- Create deeply nested folder structures
-- Mix different component types in the same directory
-- Use class components
-- Ignore TypeScript errors
-- Skip accessibility requirements
-- Create overly complex components
-- Use deprecated React patterns
-  description: project structure rules
-  globs: \*
-  alwaysApply: true

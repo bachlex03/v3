@@ -31,7 +31,7 @@ utils/
 ## Usage Example
 
 ```typescript
-import { cn } from '~/utils/tw-merge'
+import { cn } from '~/utils/cn'
 
 const Button = ({ className, variant, ...props }) => {
   return (

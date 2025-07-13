@@ -75,7 +75,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
   }
 
   return (
-    <div className='lg:flex h-full lg:gap-4 pt-[96px]'>
+    <div className='lg:flex h-full lg:gap-4 pt-[96px] px-[100px]'>
       <header className='relative w-1/2'>
         <div className='fixed h-screen flex flex-col justify-between'>
           <div className=''>
