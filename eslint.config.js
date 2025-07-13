@@ -1,3 +1,6 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
+import storybook from 'eslint-plugin-storybook'
+
 import js from '@eslint/js'
 import globals from 'globals'
 import reactHooks from 'eslint-plugin-react-hooks'
@@ -7,7 +10,7 @@ import eslintPluginPrettier from 'eslint-plugin-prettier'
 // import babelParser from "@babel/eslint-parser";
 
 export default tseslint.config(
-  { ignores: ['dist', 'node_modules'] },
+  { ignores: ['dist', 'node_modules', '.storybook', 'src/stories'] },
   {
     extends: [js.configs.recommended, ...tseslint.configs.recommended],
     files: ['**/*.{ts,tsx}'],
@@ -95,6 +98,7 @@ export default tseslint.config(
       ],
     },
   },
+  storybook.configs['flat/recommended'],
 )
 
 // "lf" - Use Unix line endings (\n) - common on macOS/Linux
