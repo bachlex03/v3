@@ -1080,6 +1080,18 @@
     react-dom "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent "^2.0.0"
 
+"@storybook/addon-styling-webpack@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-styling-webpack/-/addon-styling-webpack-2.0.0.tgz#3e854c82a835a6df439a69e307f337b39b4a4cab"
+  integrity sha512-N8jWhWnk3/nbL4P9zl0OEV/47P0Cxn/kPzSHjdAClyDYnqj9jI6upeLsraZgIV9Ro3QSeqeIloeXb1zMasWpOw==
+
+"@storybook/addon-themes@^9.0.16":
+  version "9.0.16"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-themes/-/addon-themes-9.0.16.tgz#23ddb48f956b12a979e12938ad97dcda2ab53652"
+  integrity sha512-lzUkriN/DqEbokZTQlleob+1Tkuccv+3LLOGlP9hgk45ug3iiPV67Uq8iZapr7lofSJ525QnMB2XktkPReDpYA==
+  dependencies:
+    ts-dedent "^2.0.0"
+
 "@storybook/addon-vitest@^9.0.16":
   version "9.0.16"
   resolved "https://registry.yarnpkg.com/@storybook/addon-vitest/-/addon-vitest-9.0.16.tgz#98c9f6b740c1a76a22bdb42185d86cd6543b323b"
