@@ -1,0 +1,155 @@
+/* PostCSS Example - Testing various features */
+
+/* Custom Properties */
+:root {
+  --primary-color: #3b82f6;
+  --secondary-color: #64748b;
+  --border-radius: 8px;
+  --transition-duration: 0.2s;
+}
+
+/* Custom Media Queries */
+@custom-media --mobile (max-width: 768px);
+@custom-media --tablet (min-width: 769px) and (max-width: 1024px);
+@custom-media --desktop (min-width: 1025px);
+
+/* Nested Rules */
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all var(--transition-duration) ease;
+
+  .header {
+    padding: 1rem;
+    border-bottom: 1px solid #e5e7eb;
+
+    .title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary-color);
+    }
+
+    .subtitle {
+      font-size: 0.875rem;
+      color: var(--secondary-color);
+      margin-top: 0.25rem;
+    }
+  }
+
+  .content {
+    padding: 1rem;
+
+    p {
+      margin-bottom: 0.5rem;
+      line-height: 1.6;
+    }
+  }
+
+  .footer {
+    padding: 1rem;
+    border-top: 1px solid #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  /* Hover state */
+  &:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Responsive design */
+  @media (--mobile) {
+    margin: 0.5rem;
+
+    .header {
+      padding: 0.75rem;
+    }
+
+    .content {
+      padding: 0.75rem;
+    }
+  }
+
+  @media (--tablet) {
+    margin: 1rem;
+  }
+
+  @media (--desktop) {
+    margin: 1.5rem;
+  }
+}
+
+/* Logical Properties */
+.container {
+  margin-block: 1rem;
+  margin-inline: auto;
+  padding-block: 1.5rem;
+  padding-inline: 1rem;
+
+  /* Logical values for text alignment */
+  text-align: start;
+
+  /* Logical values for borders */
+  border-block-end: 1px solid #e5e7eb;
+}
+
+/* Modern CSS Features */
+.button {
+  /* CSS Grid */
+  display: grid;
+  place-items: center;
+
+  /* Modern color functions */
+  background: color-mix(in srgb, var(--primary-color) 80%, white);
+  color: color-contrast(var(--primary-color) vs white, black);
+
+  /* Modern spacing */
+  padding: clamp(0.5rem, 2vw, 1rem);
+
+  /* Modern typography */
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+
+  /* Modern transitions */
+  transition: all var(--transition-duration) cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Container Queries (if supported) */
+@container (min-width: 400px) {
+  .responsive-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Modern Selectors */
+.card:has(.button) {
+  border: 2px solid var(--primary-color);
+}
+
+.card:is(.featured, .premium) {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+/* Focus styles */
+.button:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #60a5fa;
+    --secondary-color: #94a3b8;
+  }
+
+  .card {
+    background: #1f2937;
+    color: #f9fafb;
+  }
+}
