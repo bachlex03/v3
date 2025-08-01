@@ -10,6 +10,7 @@
 :root {
   /* Variables */
   --background: oklch(1 0 0);
+  --primary: oklch(0.91 0.14 174.34 / 0.9);
 }
 
 @theme inline {
@@ -24,6 +25,7 @@
   /* --color-primary-dark: #222222; */
   /* --color-secondary: #ffffff; */
   --color-background: var(--background);
+  --color-primary: var(--primary);
 
   /* Fonts */
   /* Primary font stack */

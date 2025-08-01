@@ -2,7 +2,7 @@ import { type FC, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { useScrollDirection } from '~/hooks/useScrollDirection'
 import { cn } from '~/utils/cn'
-import { navItems } from '../../_components/Header/_data'
+import { navItems } from '~/components/Layouts/_components/Header/_data'
 import styles from './styles.module.scss'
 
 type Props = object

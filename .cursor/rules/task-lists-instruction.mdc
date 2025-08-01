@@ -1,4 +1,4 @@
----
+<!-- ---
 description: This rule explains how to create and manage task lists to track project progress.
 globs: *
 alwaysApply: false
@@ -109,4 +109,4 @@ Should become:
 - [x] Set up project structure
 - [x] Configure environment variables
 - [x] Implement database schema
-```
+``` -->

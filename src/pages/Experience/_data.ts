@@ -103,6 +103,23 @@ export const projects = [
       'Modern, responsive portfolio website showcasing professional experience and projects. Built with Next.js for optimal performance, styled with Tailwind CSS for clean design, and enhanced with ShadcnUI components. Features smooth animations, dark theme, and mobile-first responsive design.',
     techs: ['Next.js', 'TailwindCSS', 'TypeScript', 'React', 'ShadcnUI'],
   },
+  {
+    title: 'Next/Nest Monorepo Starter Kit | Cursor/Claude/Kiro',
+    image: '/assets/images/image-1.png',
+    description:
+      'Modern, responsive portfolio website showcasing professional experience and projects. Built with Next.js for optimal performance, styled with Tailwind CSS for clean design, and enhanced with ShadcnUI components. Features smooth animations, dark theme, and mobile-first responsive design.',
+    techs: [
+      'Next.js/React',
+      'Nest.js',
+      'TypeScript',
+      'Prisma',
+      'PostgreSQL',
+      'Docker',
+      'TailwindCSS',
+      'HTML5/CSS3',
+      'SASS',
+    ],
+  },
 ]
 
 export const certificates = [
