@@ -1,4 +1,4 @@
-import { HomePage, ExperiencePage } from '~/pages'
+import { HomePage, ExperiencePage, ContactPage } from '~/pages'
 import { HeaderOnlyLayout } from '~/components/layouts'
 import type { TLayoutProps } from '~/domain/ui/types/TLayoutProps'
 import type { ComponentType } from 'react'
@@ -18,6 +18,11 @@ const publicRoutes: Route[] = [
   {
     path: '/experience',
     component: ExperiencePage,
+    layout: HeaderOnlyLayout,
+  },
+  {
+    path: '/contact',
+    component: ContactPage,
     layout: HeaderOnlyLayout,
   },
 ]

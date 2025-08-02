@@ -3,7 +3,7 @@ import { FiDownload } from 'react-icons/fi'
 
 import Button from '~/components/app/Button'
 import { stats } from './_stats'
-import { FlipWords } from '~/components/3rd/ac/flip-words'
+import { FlipWords } from '~/components/3rd/aceternity/flip-words'
 
 type HomePageProps = object
 
