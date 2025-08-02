@@ -12,7 +12,7 @@ export const stats = [
     num: '8+',
   },
   {
-    text: 'Commits on Github',
+    text: 'Github commits per year',
     num: '1000+',
   },
 ]
