@@ -1,9 +1,12 @@
 import { type FC } from 'react'
 import { FiDownload } from 'react-icons/fi'
+import { FlipWords } from '~/components/3rd/aceternity/flip-words'
 
 import Button from '~/components/app/Button'
 import { stats } from './_stats'
-import { FlipWords } from '~/components/3rd/aceternity/flip-words'
+import styles from './styles.module.scss'
+import { cn } from '~/utils/cn'
+import { motion } from 'framer-motion'
 
 type HomePageProps = object
 
@@ -67,7 +70,7 @@ const HomePage: FC<HomePageProps> = () => {
   }
 
   return (
-    <div className=''>
+    <div className={cn(styles['counter-root'])}>
       <section className='hero flex h-screen items-center justify-center'>
         <div className='mx-auto max-w-[700px] px-6 md:max-w-[850px] lg:max-w-[1200px]'>
           <span className='text-primary mb-1 block font-mono text-base md:text-lg'>Hi, my name is</span>
@@ -113,6 +116,145 @@ const HomePage: FC<HomePageProps> = () => {
           </div>
         </div>
       </section>
+
+      {/* About me */}
+      <section id='about' className='mb-20'>
+        <div className='px-[24px] md:px-[120px]'>
+          <h1
+            className={cn(
+              styles['section-title'],
+              'mb-10 text-lg font-bold text-[#ccd6f6] after:w-[150px] md:text-[30px] md:after:w-[400px]',
+            )}
+          >
+            About me
+          </h1>
+          <div className='flex flex-col-reverse items-center gap-10 md:px-10 xl:flex-row xl:items-start'>
+            <div className='min-w-0 flex-1'>
+              <p className='mb-4 leading-relaxed text-[#8892b0]'>
+                Hello! My full name is <span className='text-[#64ffda]'>Le Xuan Bach</span>, you can call me{' '}
+                <span className='italic'>"Bale"</span>. I enjoy creating things that live on the internet. My interest
+                in web development started back in 2020 when I decided to try creating something that make a valuable
+                product for society.
+              </p>
+              <p className='mb-4 leading-relaxed text-[#8892b0]'>
+                Fast-forward to today, I'm a dedicated student currently enrolled at the Ho Chi Minh City University of
+                Technology and Education (HCMUTE). My academic journey at HCMUTE has been a remarkable experience filled
+                with learning, growth, and exciting challenges. As I pursue my education in this esteemed institution, I
+                am passionate about Information and Technology and continually strive to expand my knowledge and
+                contribute to my field.
+              </p>
+              <p className='mb-4 leading-relaxed text-[#8892b0]'>
+                Here are a few technologies I've been working with recently:
+              </p>
+              <ul className='grid grid-cols-2 gap-2 text-sm text-[#8892b0]'>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  JavaScript (ES6+)
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  TypeScript
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  React (Next.js)
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  Node.js (Express, Nest.js)
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  MongoDB
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  PostgreSQL
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  CI/CD (Jenkins)
+                </li>
+                <li className='flex items-center'>
+                  <span className='mr-2 text-[#64ffda]'>▹</span>
+                  C# .NET
+                </li>
+              </ul>
+            </div>
+
+            <div className='flex-shrink-0'>
+              <div className='relative'>
+                {/* Profile Picture */}
+                {/* <div className='relative h-[300px] w-[300px] overflow-hidden rounded-full bg-gray-200 xl:h-[350px] xl:w-[350px]'>
+                  <img src='/assets/images/avatar.png' alt='Le Xuan Bach' className='h-full w-full object-cover' />
+                </div> */}
+                <div className='relative left-[-50px]'>
+                  <div className='relative left-[35px] h-[300px] w-[300px] xl:h-[350px] xl:w-[350px]'>
+                    <img
+                      src='/assets/images/avatar.png'
+                      alt='avatar'
+                      className='h-full w-full rounded-full object-cover'
+                    />
+                  </div>
+
+                  <motion.svg
+                    fill='transparent'
+                    viewBox='0 0 400 400'
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='absolute top-[-35px] h-[370px] w-[370px] xl:h-[420px] xl:w-[420px]'
+                  >
+                    <motion.circle
+                      cx='50%'
+                      cy='50%'
+                      r='175'
+                      stroke='#64ffda'
+                      strokeWidth='4'
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      initial={{ strokeDasharray: '24 10 0 0' }}
+                      animate={{
+                        strokeDasharray: ['15 120 25 25', '16 25 92 72', '4 250 22 22'],
+                        rotate: [120, 360],
+                      }}
+                      transition={{
+                        duration: 20,
+                        repeat: Infinity,
+                        repeatType: 'reverse',
+                      }}
+                    />
+                  </motion.svg>
+                </div>
+
+                {/* Decorative elements */}
+                <div className='absolute -right-2 -bottom-2 h-4 w-4 rounded-full bg-[#64ffda] opacity-80'></div>
+                <div className='absolute -top-2 -left-2 h-3 w-3 rounded-full bg-[#64ffda] opacity-60'></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Worked companies */}
+      <section id='worked-companies'>
+        <div className='px-[200px]'>
+          <h1
+            className={cn(
+              styles['section-title'],
+              'mb-10 text-lg font-bold text-[#ccd6f6] after:w-[150px] md:text-[30px] md:after:w-[400px]',
+            )}
+          >
+            Where i've Worked
+          </h1>
+        </div>
+      </section>
+
+      {/* <section id='highlight-projects' className='mb-20'>
+        <div className='px-[120px]'>
+          <h1 className={cn(styles['section-title'], 'text-[30px] font-bold text-[#ccd6f6]')}>Highlight Projects</h1>
+        </div>
+      </section> */}
+
+      {/* <section id='contact'></section> */}
     </div>
   )
 }

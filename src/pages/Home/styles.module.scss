@@ -1,0 +1,28 @@
+.counter-root {
+  counter-reset: section;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  width: max-content;
+}
+.section-title::before {
+  content: '0' counter(section) '.';
+  counter-increment: section 1;
+  display: inline-block;
+  font-size: 22px;
+  font-weight: 400;
+  margin-right: 10px;
+  font-family: monospace;
+  color: var(--secondary-color);
+  line-height: 1;
+}
+.section-title::after {
+  content: '';
+  display: inline-block;
+  height: 1px;
+  margin-left: 20px;
+  background-color: #233554;
+  align-self: center;
+}
