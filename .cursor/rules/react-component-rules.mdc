@@ -206,7 +206,6 @@ const Button: FC<Props> = ({
 ```bash
 src/components/app/ComponentName/
 ├── index.tsx          # Main component
-└── types.ts           # Type definitions (if complex)
 ```
 
 **File Naming:**
@@ -269,44 +268,16 @@ const ComponentName: FC<Props> = ({
 export default ComponentName
 ```
 
-### 3. TypeScript Rules
-
-**Type Definitions:**
-
-- Use `type` instead of `interface` for props
-- Extend HTML attributes when appropriate
-- Use `VariantProps` from CVA for variant types
-- Avoid `any` type - use `unknown` if needed
-
-**Import Patterns:**
-
-```typescript
-// ✅ CORRECT
-import { type FC, type HTMLAttributes } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
-
-// ❌ INCORRECT
-import React from 'react'
-import { FC, HTMLAttributes } from 'react'
-```
-
 ### 4. Styling Rules
 
 **Tailwind CSS Usage:**
 
 - Use standard Tailwind classes
-- Avoid custom CSS variables unless necessary
+<!-- - Avoid custom CSS variables unless necessary -->
 - Use CVA for variant management
 - Use `cn()` utility for class merging
 
-**Color Palette:**
-
-- Primary: `blue-600`, `blue-700`
-- Secondary: `gray-200`, `gray-300`
-- Destructive: `red-600`, `red-700`
-- Neutral: `gray-50`, `gray-100`, `gray-900`
-
-### 5. Accessibility Rules
+<!-- ### 5. Accessibility Rules
 
 **Required Accessibility Features:**
 
@@ -330,7 +301,7 @@ import { FC, HTMLAttributes } from 'react'
 
 // ❌ INCORRECT
 <div onClick={handleClick}>Close</div>
-```
+``` -->
 
 ### 6. Performance Rules
 
@@ -348,14 +319,3 @@ const Button = React.memo<Props>(({ children, ...props }) => {
   return <button {...props}>{children}</button>
 })
 ```
-
-### 7. Documentation Rules
-
-**Optional Documentation:**
-
-- Component purpose and usage (optional)
-- Props documentation (optional)
-- Examples for each variant (optional)
-- Accessibility considerations (optional)
-
-**Note:** README files are not required for components. Documentation can be provided through TypeScript types and JSDoc comments in the component file.
