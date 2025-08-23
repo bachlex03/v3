@@ -218,7 +218,7 @@ const HomePage: FC<HomePageProps> = () => {
   return (
     <div className={cn(styles['counter-root'])}>
       <section className='hero flex h-screen items-center justify-center'>
-        <div className='mx-auto max-w-[700px] px-6 md:max-w-[850px] lg:max-w-[1200px]'>
+        <div className='mx-auto max-w-[700px] px-6 md:max-w-[850px] lg:max-w-[1400px]'>
           <span className='text-primary mb-1 block font-mono text-base md:text-lg'>Hi, my name is</span>
           <h1 className='mb-2 text-[32px] font-bold text-[#ccd6f6] md:text-[60px] lg:text-[70px]'>Le Xuan Bach,</h1>
           <h2 className='mb-6 text-[32px] font-bold text-slate-400 md:text-[60px] lg:text-[70px]'>
@@ -258,7 +258,7 @@ const HomePage: FC<HomePageProps> = () => {
       </section>
 
       {/* About me */}
-      <section id='about' className='mb-20'>
+      <section id='about' className='mb-20 lg:mx-auto lg:w-[1400px]'>
         <div className='px-[24px] md:px-[120px]'>
           <h1
             className={cn(
@@ -375,7 +375,7 @@ const HomePage: FC<HomePageProps> = () => {
       </section>
 
       {/* Worked companies */}
-      <section id='worked-companies'>
+      <section id='worked-companies' className='lg:mx-auto lg:w-[1400px]'>
         <div className='px-[200px]'>
           <h1
             className={cn(
@@ -391,11 +391,11 @@ const HomePage: FC<HomePageProps> = () => {
         </div>
       </section>
 
-      {/* <section id='highlight-projects' className='mb-20'>
-        <div className='px-[120px]'>
+      <section id='highlight-projects' className='mb-40 pb-80'>
+        {/* <div className='px-[120px]'>
           <h1 className={cn(styles['section-title'], 'text-[30px] font-bold text-[#ccd6f6]')}>Highlight Projects</h1>
-        </div>
-      </section> */}
+        </div> */}
+      </section>
 
       {/* <section id='contact'></section> */}
     </div>
