@@ -1,9 +1,9 @@
 import { type FC, type ButtonHTMLAttributes, type ReactNode } from 'react'
-import { cva, type VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 import { cn } from '~/utils/cn'
 import styles from './styles.module.scss'
 
-const variants = cva(
+export const buttonVariants = cva(
   // Base classes
   'py-[12px] px-[18px] rounded border-solid border font-mono',
   {
@@ -25,17 +25,16 @@ const variants = cva(
   },
 )
 
-type Props = ButtonHTMLAttributes<HTMLButtonElement> &
-  VariantProps<typeof variants> & {
-    isLoading?: boolean
-    icon?: ReactNode
-    iconPosition?: 'before' | 'after'
-  }
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  variants?: string
+  isLoading?: boolean
+  icon?: ReactNode
+  iconPosition?: 'before' | 'after'
+}
 
 const Button: FC<Props> = ({
   children,
-  variant,
-  size,
+  variants = buttonVariants({}),
   isLoading = false,
   disabled,
   className,
@@ -43,6 +42,9 @@ const Button: FC<Props> = ({
   iconPosition = 'before',
   ...props
 }) => {
+  // Check if this is an icon-only button (no children text)
+  const isIconOnly = !children || children === ''
+
   // Loading spinner component
   const LoadingSpinner = () => (
     <svg className='h-4 w-4 animate-spin' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'>
@@ -56,24 +58,24 @@ const Button: FC<Props> = ({
   )
 
   return (
-    <button
-      className={cn(variants({ variant, size, className }), styles['wrapper'])}
-      disabled={disabled || isLoading}
-      {...props}
-    >
+    <button className={cn(variants, className, styles['wrapper'])} disabled={disabled || isLoading} {...props}>
       {isLoading && iconPosition === 'before' && (
-        <span className=''>
+        <span className={cn('inline-block translate-y-0.5', !isIconOnly && 'mr-2')}>
           <LoadingSpinner />
         </span>
       )}
-      {!isLoading && icon && iconPosition === 'before' && <span className=''>{icon}</span>}
+      {!isLoading && icon && iconPosition === 'before' && (
+        <span className={cn('inline-block translate-y-0.5', !isIconOnly && 'mr-2')}>{icon}</span>
+      )}
       {children}
       {isLoading && iconPosition === 'after' && (
-        <span className=''>
+        <span className={cn('inline-block translate-y-0.5', !isIconOnly && 'ml-2')}>
           <LoadingSpinner />
         </span>
       )}
-      {!isLoading && icon && iconPosition === 'after' && <span className=''>{icon}</span>}
+      {!isLoading && icon && iconPosition === 'after' && (
+        <span className={cn('inline-block translate-y-0.5', !isIconOnly && 'ml-2')}>{icon}</span>
+      )}
     </button>
   )
 }

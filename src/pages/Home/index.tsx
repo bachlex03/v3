@@ -1,13 +1,14 @@
 import { type FC } from 'react'
 import { FiDownload } from 'react-icons/fi'
-import { FlipWords } from '~/components/3rd/aceternity/flip-words'
+import { motion } from 'framer-motion'
 
+import { cn } from '~/utils/cn'
+import { FlipWords } from '~/components/3rd/aceternity/flip-words'
+import { Timeline } from '~/components/3rd/aceternity/timeline'
 import Button from '~/components/app/Button'
+
 import { stats } from './_stats'
 import styles from './styles.module.scss'
-import { cn } from '~/utils/cn'
-import { motion } from 'framer-motion'
-import { Timeline } from '~/components/3rd/aceternity/timeline'
 
 type HomePageProps = object
 
@@ -221,8 +222,7 @@ const HomePage: FC<HomePageProps> = () => {
           <span className='text-primary mb-1 block font-mono text-base md:text-lg'>Hi, my name is</span>
           <h1 className='mb-2 text-[32px] font-bold text-[#ccd6f6] md:text-[60px] lg:text-[70px]'>Le Xuan Bach,</h1>
           <h2 className='mb-6 text-[32px] font-bold text-slate-400 md:text-[60px] lg:text-[70px]'>
-            I build
-            <FlipWords words={['things', 'beautiful', 'modern', 'fast']} className='text-[#ccd6f6]' />
+            I build <FlipWords words={['things', 'beautiful', 'modern', 'fast']} className='text-[#ccd6f6]' />
             for the web.
           </h2>
           <div className='mb-5 lg:max-w-[800px]'>
@@ -237,12 +237,7 @@ const HomePage: FC<HomePageProps> = () => {
           </div>
 
           <span className='flex justify-center md:justify-start'>
-            <Button
-              icon={<FiDownload className='ml-2 inline-block text-xl' />}
-              iconPosition='after'
-              className='mb-20'
-              onClick={handleDownloadCV}
-            >
+            <Button icon={<FiDownload />} iconPosition='after' className='mb-20' onClick={handleDownloadCV}>
               Checkout my cv/portfolio
             </Button>
           </span>

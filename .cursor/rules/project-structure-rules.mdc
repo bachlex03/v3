@@ -83,39 +83,7 @@ touch src/components/layouts/ComponentName/index.tsx
 
 ```
 
-### 3. Barrel Exports Pattern
-
-**Use index files for clean imports:**
-
-```typescript
-// src/components/app/index.ts
-export { default as Button } from './Button'
-export { default as Text } from './Text'
-export { default as GlowCard } from './GlowCard'
-
-// src/components/layouts/index.tsx
-export { default as DefaultLayout } from './DefaultLayout'
-export { default as HeaderOnlyLayout } from './HeaderOnlyLayout'
-
-// src/pages/index.tsx
-export { default as HomePage } from './Home'
-export { default as ExperiencePage } from './Experience'
-```
-
-**Import Usage:**
-
-```typescript
-// ✅ CORRECT - Use barrel exports
-import { Button, Text } from '~/components/app'
-import { DefaultLayout, HeaderOnlyLayout } from '~/components/layouts'
-import { HomePage, ExperiencePage } from '~/pages'
-
-// ❌ INCORRECT - Direct imports
-import Button from '~/components/app/Button'
-import HomePage from '~/pages/Home'
-```
-
-### 5. Asset Management
+### 2. Asset Management
 
 **Asset Organization:**
 
@@ -137,7 +105,7 @@ import HomePage from '~/pages/Home'
 - CSS modules when needed for complex styling
 - Global CSS for theme variables and utilities
 
-### 7. Domain Organization
+### 3. Domain Organization
 
 **Domain Structure:**
 
@@ -154,7 +122,7 @@ src/domain/
 - PascalCase naming
 - Group related types in domain folders
 
-### 8. Configuration Files
+### 4. Configuration Files
 
 **Root Level Configuration:**
 

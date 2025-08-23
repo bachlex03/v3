@@ -1,0 +1,338 @@
+---
+alwaysApply: true
+globs: ['src/components/**/*']
+---
+
+# React Component Rules
+
+## Overview
+
+This document defines the standards and best practices for React components in the Portfolio v3 project, based on the Button component as a template. These rules ensure consistency, maintainability, and high code quality across all components.
+
+## Component Structure Template
+
+### File Organization
+
+```
+ComponentName/
+├── index.tsx          # Main component file
+├── README.md          # Component documentation
+├── styles.module.scss # Component-specific styles (if needed)
+└── ComponentName.stories.tsx # Storybook stories
+```
+
+### Component File Structure
+
+```tsx
+// 1. Imports (React types first, then external libraries, then internal)
+import { type FC, type ComponentProps, type ReactNode } from 'react'
+import { cva } from 'class-variance-authority'
+import { cn } from '~/utils/cn'
+import styles from './styles.module.scss'
+
+// 2. Variants definition (if using CVA)
+export const componentVariants = cva('base-classes', {
+  variants: {
+    variant: {
+      primary: 'primary-classes',
+      secondary: 'secondary-classes',
+    },
+    size: {
+      sm: 'small-classes',
+      md: 'medium-classes',
+      lg: 'large-classes',
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md',
+  },
+})
+
+// 3. Props type definition
+type Props = ComponentProps<'element'> & {
+  // Custom props
+  customProp?: string
+  isLoading?: boolean
+  icon?: ReactNode
+  iconPosition?: 'before' | 'after'
+}
+
+// 4. Component implementation
+const ComponentName: FC<Props> = ({ children, customProp, isLoading = false, className, ...props }) => {
+  // 5. Internal components (if needed)
+  const InternalComponent = () => <div>Internal component</div>
+
+  // 6. Return JSX
+  return (
+    <div className={cn(componentVariants({}), className, styles.wrapper)} {...props}>
+      {children}
+    </div>
+  )
+}
+
+// 7. Export
+export default ComponentName
+```
+
+## Import Rules
+
+### Import Order
+
+1. **React imports** - React types and hooks
+2. **External libraries** - Third-party packages
+3. **Internal imports** - Project-specific imports using `~/` alias
+4. **Relative imports** - Only for same-directory files
+
+```tsx
+// ✅ CORRECT - Proper import order
+import { type FC, type ButtonHTMLAttributes, type ReactNode } from 'react'
+import { cva } from 'class-variance-authority'
+import { cn } from '~/utils/cn'
+import styles from './styles.module.scss'
+
+// ❌ INCORRECT - Mixed import order
+import { cva } from 'class-variance-authority'
+import { type FC } from 'react'
+import styles from './styles.module.scss'
+import { cn } from '~/utils/cn'
+```
+
+### Type Imports
+
+- **Always** use `type` imports for TypeScript types
+- **Never** import types as runtime values
+
+```tsx
+// ✅ CORRECT - Type imports
+import { type FC, type ButtonHTMLAttributes } from 'react'
+
+// ❌ INCORRECT - Runtime imports for types
+import { FC, ButtonHTMLAttributes } from 'react'
+```
+
+## TypeScript Rules
+
+### Props Definition
+
+- **Always** extend native HTML element props when appropriate
+- **Use** `type` instead of `interface` for props
+- **Prefix** custom props with descriptive names
+- **Provide** default values for optional props
+
+```tsx
+// ✅ CORRECT - Props definition
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+  isLoading?: boolean
+  icon?: ReactNode
+  iconPosition?: 'before' | 'after'
+}
+
+// ❌ INCORRECT - Poor props definition
+interface Props {
+  isLoading?: boolean
+  icon?: ReactNode
+  iconPosition?: 'before' | 'after'
+}
+```
+
+### Component Typing
+
+- **Always** use `FC<Props>` for functional components
+- **Never** use `React.FC` or `React.FunctionComponent`
+
+```tsx
+// ✅ CORRECT - Component typing
+const Button: FC<Props> = ({ children, ...props }) => {
+  return <button {...props}>{children}</button>
+}
+
+// ❌ INCORRECT - Poor component typing
+const Button = ({ children, ...props }: Props) => {
+  return <button {...props}>{children}</button>
+}
+```
+
+## Styling Rules
+
+### Class Variance Authority (CVA)
+
+- **Use** CVA for components with multiple variants
+- **Define** base classes in the first parameter
+- **Group** related variants logically
+- **Provide** sensible default variants
+
+```tsx
+// ✅ CORRECT - CVA usage
+export const buttonVariants = cva('py-[12px] px-[18px] rounded border-solid border font-mono', {
+  variants: {
+    variant: {
+      primary: 'text-primary border-primary',
+      secondary: 'text-secondary border-secondary',
+    },
+    size: {
+      sm: 'text-xs py-2 px-3',
+      md: 'text-sm py-3 px-4',
+      lg: 'text-base py-4 px-6',
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+    size: 'md',
+  },
+})
+```
+
+### CSS Modules
+
+- **Use** CSS modules for component-specific styles
+- **Keep** styles minimal and focused
+- **Use** semantic class names
+- **Apply** styles via `styles.className`
+
+```scss
+// ✅ CORRECT - CSS module structure
+.wrapper {
+  transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.wrapper:hover {
+  box-shadow: 3px 3px 0 0 #64ffda;
+  transform: translate(-4px, -4px);
+}
+```
+
+### Utility Classes
+
+- **Use** Tailwind CSS for layout and spacing
+- **Combine** with CSS modules for complex interactions
+- **Use** `cn()` utility for class merging
+
+```tsx
+// ✅ CORRECT - Class merging
+<button className={cn(variants, className, styles.wrapper)}>{children}</button>
+```
+
+## Component Logic Rules
+
+### State Management
+
+- **Keep** components as pure as possible
+- **Use** props for data flow
+- **Minimize** internal state
+- **Handle** loading and error states gracefully
+
+```tsx
+// ✅ CORRECT - State handling
+const Button: FC<Props> = ({ isLoading = false, disabled, ...props }) => {
+  return (
+    <button disabled={disabled || isLoading} {...props}>
+      {isLoading ? <LoadingSpinner /> : props.children}
+    </button>
+  )
+}
+```
+
+### Conditional Rendering
+
+- **Use** logical operators for simple conditions
+- **Use** ternary operators for either/or conditions
+- **Keep** conditions readable and maintainable
+
+```tsx
+// ✅ CORRECT - Conditional rendering
+{
+  isLoading && iconPosition === 'before' && (
+    <span className='mr-2 inline-block translate-y-0.5'>
+      <LoadingSpinner />
+    </span>
+  )
+}
+
+{
+  !isLoading && icon && iconPosition === 'before' && <span>{icon}</span>
+}
+```
+
+### Internal Components
+
+- **Define** internal components within the main component
+- **Use** descriptive names
+- **Keep** them simple and focused
+- **Place** them before the return statement
+
+```tsx
+// ✅ CORRECT - Internal component
+const LoadingSpinner = () => (
+  <svg className='h-4 w-4 animate-spin' xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'>
+    <circle className='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth='4' />
+    <path className='opacity-75' fill='currentColor' d='...' />
+  </svg>
+)
+```
+
+## Accessibility Rules
+
+### Semantic HTML
+
+- **Use** appropriate HTML elements
+- **Maintain** proper heading hierarchy
+- **Provide** meaningful alt text for images
+- **Use** ARIA labels when necessary
+
+```tsx
+// ✅ CORRECT - Semantic HTML
+<button aria-label='Submit form' aria-busy={isLoading} disabled={disabled || isLoading}>
+  {children}
+</button>
+```
+
+### Keyboard Navigation
+
+- **Ensure** all interactive elements are keyboard accessible
+- **Handle** focus states properly
+- **Support** Enter and Space key interactions
+
+### Screen Reader Support
+
+- **Use** descriptive text for screen readers
+- **Provide** loading state announcements
+- **Handle** dynamic content changes
+
+## Performance Rules
+
+### Memoization
+
+- **Use** `useMemo` for expensive calculations
+- **Use** `useCallback` for function props
+- **Avoid** unnecessary re-renders
+
+### Bundle Size
+
+- **Import** only what you need
+- **Use** dynamic imports for large dependencies
+- **Avoid** importing entire libraries
+
+## Enforcement
+
+These rules should be enforced through:
+
+- ESLint configuration
+- Prettier formatting
+- Code review process
+- Automated testing
+
+## Review Checklist
+
+Before submitting a component for review, ensure:
+
+- [ ] Follows file structure template
+- [ ] Uses proper TypeScript typing
+- [ ] Implements CVA for variants (if applicable)
+- [ ] Has proper accessibility features
+- [ ] Includes error handling
+- [ ] Follows performance best practices
+- [ ] Has appropriate tests/stories
+- [ ] Uses alias imports (`~/`)
+- [ ] Follows naming conventions
+- [ ] Includes proper documentation

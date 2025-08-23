@@ -22,7 +22,7 @@ This document centralizes all "DO NOT" rules for the Portfolio v3 project to ens
 
 ### File Organization
 
-- **DO NOT** use relative imports (`../../`, `../`, `./`)
+- **DO NOT** use relative imports (`../../`, `../`)
 - **DO NOT** create deeply nested folder structures
 - **DO NOT** mix different component types in the same directory
 - **DO NOT** use inconsistent naming conventions
