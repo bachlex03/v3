@@ -218,7 +218,7 @@ const HomePage: FC<HomePageProps> = () => {
   return (
     <div className={cn(styles['counter-root'])}>
       <section className='hero flex h-screen items-center justify-center'>
-        <div className='mx-auto max-w-[700px] px-6 md:max-w-[850px] lg:max-w-[1400px]'>
+        <div className='mx-auto max-w-[700px] px-6 md:max-w-[850px] lg:max-w-[1200px]'>
           <span className='text-primary mb-1 block font-mono text-base md:text-lg'>Hi, my name is</span>
           <h1 className='mb-2 text-[32px] font-bold text-[#ccd6f6] md:text-[60px] lg:text-[70px]'>Le Xuan Bach,</h1>
           <h2 className='mb-6 text-[32px] font-bold text-slate-400 md:text-[60px] lg:text-[70px]'>
