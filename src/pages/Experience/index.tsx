@@ -229,6 +229,63 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
             </div>
           </section>
 
+          {/* Projects Section */}
+          <section id='projects' className='pt-[96px] pb-[96px]'>
+            <div className='space-y-6'>
+              {projects.map((project, index) => {
+                return (
+                  <FocusItem
+                    key={index}
+                    itemName={`project-${index}`}
+                    baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                  >
+                    {/* Image */}
+                    <div className='col-span-2'>
+                      <div className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-colors duration-300 group-hover:border-slate-600/50'>
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className='h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'
+                        />
+                        <div className='absolute inset-0 bg-slate-900/20 transition-colors duration-300 group-hover:bg-slate-900/10'></div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className='col-span-6 pl-4'>
+                      <div className='mb-2 flex items-center'>
+                        <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
+                          {project.title}
+                        </h3>
+                        <div className='ml-2 transition-opacity duration-300 group-hover:opacity-100'>
+                          <BsArrowDownRight className='transform text-sm text-teal-300 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1' />
+                        </div>
+                      </div>
+
+                      <p className='mb-4 text-[14px] leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300'>
+                        {project.description}
+                      </p>
+
+                      <div className='flex flex-wrap gap-2'>
+                        {project.techs.map((tech, index) => (
+                          <span
+                            key={index}
+                            className='rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300 transition-colors duration-300 group-hover:border-teal-400/30 group-hover:bg-teal-400/15'
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Subtle gradient overlay */}
+                    <div className='pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-transparent to-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100'></div>
+                  </FocusItem>
+                )
+              })}
+            </div>
+          </section>
+
           {/* Certificates Section */}
           <section id='certificates' className='pt-[96px] pb-[96px]'>
             <div className='space-y-6'>
@@ -299,63 +356,6 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                         </div>
                       )}
                     </div>
-                  </FocusItem>
-                )
-              })}
-            </div>
-          </section>
-
-          {/* Projects Section */}
-          <section id='projects' className='pt-[96px] pb-[96px]'>
-            <div className='space-y-6'>
-              {projects.map((project, index) => {
-                return (
-                  <FocusItem
-                    key={index}
-                    itemName={`project-${index}`}
-                    baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
-                  >
-                    {/* Image */}
-                    <div className='col-span-2'>
-                      <div className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-colors duration-300 group-hover:border-slate-600/50'>
-                        <img
-                          src={project.image}
-                          alt={project.title}
-                          className='h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'
-                        />
-                        <div className='absolute inset-0 bg-slate-900/20 transition-colors duration-300 group-hover:bg-slate-900/10'></div>
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className='col-span-6 pl-4'>
-                      <div className='mb-2 flex items-center'>
-                        <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
-                          {project.title}
-                        </h3>
-                        <div className='ml-2 transition-opacity duration-300 group-hover:opacity-100'>
-                          <BsArrowDownRight className='transform text-sm text-teal-300 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1' />
-                        </div>
-                      </div>
-
-                      <p className='mb-4 text-[14px] leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300'>
-                        {project.description}
-                      </p>
-
-                      <div className='flex flex-wrap gap-2'>
-                        {project.techs.map((tech, index) => (
-                          <span
-                            key={index}
-                            className='rounded-full border border-teal-400/20 bg-teal-400/10 px-3 py-1 text-xs font-medium text-teal-300 transition-colors duration-300 group-hover:border-teal-400/30 group-hover:bg-teal-400/15'
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Subtle gradient overlay */}
-                    <div className='pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-transparent to-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100'></div>
                   </FocusItem>
                 )
               })}

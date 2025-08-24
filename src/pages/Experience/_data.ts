@@ -1,4 +1,4 @@
-export const navItems = ['about', 'experience', 'certificates', 'projects']
+export const navItems = ['about', 'experience', 'projects', 'certificates']
 
 export const personalInfo = [
   {
