@@ -375,7 +375,7 @@ const HomePage: FC<HomePageProps> = () => {
       </section>
 
       {/* Worked companies */}
-      <section id='worked-companies' className='hidden lg:mx-auto lg:block lg:w-[1400px]'>
+      {/* <section id='worked-companies' className='hidden lg:mx-auto lg:block lg:w-[1400px]'>
         <div className='px-[200px]'>
           <h1
             className={cn(
@@ -389,7 +389,7 @@ const HomePage: FC<HomePageProps> = () => {
             <Timeline data={_timeline} />
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section id='highlight-projects' className='mb-40 pb-80'>
         {/* <div className='px-[120px]'>
