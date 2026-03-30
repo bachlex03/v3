@@ -63,7 +63,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (!lightbox.isOpen) return
-      
+
       if (e.key === 'Escape') closeLightbox()
       if (e.key === 'ArrowRight') nextImage()
       if (e.key === 'ArrowLeft') prevImage()
@@ -162,14 +162,12 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     >
                       <a href={`#${item}`} className='flex items-center'>
                         <span
-                          className={`nav-indicator mr-4 inline-block h-px bg-slate-200/60 transition-all duration-300 group-hover:w-[80px] group-hover:bg-slate-200 ${
-                            activeSection === item ? 'w-[80px] bg-slate-200' : 'w-10'
-                          }`}
+                          className={`nav-indicator mr-4 inline-block h-px bg-slate-200/60 transition-all duration-300 group-hover:w-[80px] group-hover:bg-slate-200 ${activeSection === item ? 'w-[80px] bg-slate-200' : 'w-10'
+                            }`}
                         ></span>
                         <span
-                          className={`transition-colors duration-300 group-hover:text-[#e2e8f0] ${
-                            activeSection === item ? 'text-[#e2e8f0]' : ''
-                          }`}
+                          className={`transition-colors duration-300 group-hover:text-[#e2e8f0] ${activeSection === item ? 'text-[#e2e8f0]' : ''
+                            }`}
                         >
                           {item}
                         </span>
@@ -182,22 +180,22 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
 
           </div>
           <ul className='group flex gap-5 mt-8 lg:mt-0 lg:pb-[200px] text-[24px] text-slate-300/80'>
-              <li className='hover:text-slate-200'>
-                <a href='https://github.com/bachlex03' target='_blank' rel='noopener noreferrer'>
-                  <FaGithub />
-                </a>
-              </li>
-              <li className='hover:text-slate-200'>
-                <a href='https://www.linkedin.com/in/lxbachit03/' target='_blank' rel='noopener noreferrer'>
-                  <FaLinkedinIn />
-                </a>
-              </li>
-              <li className='hover:text-slate-200'>
-                <a href='https://www.instagram.com/bashlee.16/' target='_blank' rel='noopener noreferrer'>
-                  <FiInstagram />
-                </a>
-              </li>
-            </ul>
+            <li className='hover:text-slate-200'>
+              <a href='https://github.com/bachlex03' target='_blank' rel='noopener noreferrer'>
+                <FaGithub />
+              </a>
+            </li>
+            <li className='hover:text-slate-200'>
+              <a href='https://www.linkedin.com/in/lxbachit03/' target='_blank' rel='noopener noreferrer'>
+                <FaLinkedinIn />
+              </a>
+            </li>
+            <li className='hover:text-slate-200'>
+              <a href='https://www.instagram.com/bashlee.16/' target='_blank' rel='noopener noreferrer'>
+                <FiInstagram />
+              </a>
+            </li>
+          </ul>
         </header>
 
         <main className='pt-16 lg:w-1/2 lg:py-[96px] lg:pt-[96px]'>
@@ -328,7 +326,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                 baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
                 <div className='sm:col-span-2 mb-2 sm:mb-0'>
-                  <div 
+                  <div
                     className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-all duration-300 group-hover:border-slate-600/50 cursor-pointer lg:hover:ring-2 lg:hover:ring-teal-300'
                     onClick={() => openLightbox(0)}
                   >
@@ -885,7 +883,8 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                   <ul className='mb-4 space-y-2 text-[14px] leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300'>
                     <li className='flex gap-2'>
                       <span className='mt-1.5 text-teal-300'>▹</span>
-                      <span>Awarded <span className='font-semibold text-slate-200'>2 academic scholarships</span> for outstanding performance.</span>
+                      <span>
+                        <span className='font-semibold text-slate-200'>4-term</span> scholarship for gifted high school students and <span className='font-semibold text-slate-200'>1-term</span> academic excellence scholarship.</span>
                     </li>
                   </ul>
                 </div>
@@ -939,9 +938,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
             className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
           >
             {/* Backdrop: Clickable background to close lightbox */}
-            <div 
-              className="absolute inset-0 bg-black/95 backdrop-blur-md cursor-zoom-out" 
-              onClick={closeLightbox} 
+            <div
+              className="absolute inset-0 bg-black/95 backdrop-blur-md cursor-zoom-out"
+              onClick={closeLightbox}
             />
             <button
               onClick={closeLightbox}
@@ -972,7 +971,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               className="relative z-[105] max-w-6xl w-full flex flex-col items-center gap-4 sm:gap-6 pointer-events-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div 
+              <div
                 className="relative group flex items-center justify-center rounded-xl border border-slate-800/50 bg-slate-900/90 shadow-2xl overflow-hidden sm:min-h-[400px]"
                 onClick={(e) => e.stopPropagation()}
               >
@@ -1001,7 +1000,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                 </AnimatePresence>
               </div>
 
-              <div 
+              <div
                 className="flex flex-col items-center text-center mt-6 sm:mt-2"
                 onClick={(e) => e.stopPropagation()}
               >
@@ -1016,7 +1015,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               </div>
 
               {/* Thumbnails */}
-              <div 
+              <div
                 className="flex gap-2 overflow-x-auto py-2 no-scrollbar max-w-full px-6"
                 onClick={(e) => e.stopPropagation()}
               >
@@ -1025,11 +1024,10 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     <button
                       key={idx}
                       onClick={() => setLightbox({ ...lightbox, index: idx })}
-                      className={`relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
-                        lightbox.index === idx 
-                          ? 'border-teal-400 scale-105 shadow-[0_0_15px_-5px_rgba(45,212,191,0.5)] z-10' 
-                          : 'border-white/5 opacity-30 hover:opacity-60 hover:scale-105'
-                      }`}
+                      className={`relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${lightbox.index === idx
+                        ? 'border-teal-400 scale-105 shadow-[0_0_15px_-5px_rgba(45,212,191,0.5)] z-10'
+                        : 'border-white/5 opacity-30 hover:opacity-60 hover:scale-105'
+                        }`}
                     >
                       <img src={img} className="w-full h-full object-cover" />
                       {lightbox.index !== idx && (

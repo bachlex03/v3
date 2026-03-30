@@ -158,8 +158,8 @@ type HomePageProps = object
 
 const HomePage: FC<HomePageProps> = () => {
   const handleDownloadCV = () => {
-    const pdfUrl = '/assets/files/Fullstack_JS_Intern-LeXuanBach.pdf'
-    const fileName = 'Fullstack_JS_Intern-LeXuanBach.pdf'
+    const pdfUrl = '/assets/files/Fullstack_Software_Engineer_LeXuanBach_03_2026.pdf'
+    const fileName = 'Fullstack_Software_Engineer_LeXuanBach_03_2026.pdf'
 
     // Method 1: Try fetch and blob download (most reliable)
     fetch(pdfUrl)
