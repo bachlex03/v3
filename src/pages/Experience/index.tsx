@@ -67,19 +67,19 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
 
   return (
     <FocusModeProvider>
-      <div className='h-full px-[100px] pt-[96px] lg:flex lg:gap-4'>
-        <header className='relative w-1/2'>
-          <div className='fixed flex h-screen flex-col justify-between'>
+      <div className='mx-auto min-h-screen max-w-screen-xl px-6 py-12 md:px-12 md:py-20 lg:px-[100px] lg:py-0 lg:flex lg:gap-4'>
+        <header className='lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-[96px]'>
+          <div className='flex flex-col gap-4 lg:gap-0'>
             <div className=''>
-              <h1 className='font-inter text-[48px] font-bold tracking-tight text-[#e2e8f0]'>Bach (Bale) Le Xuan</h1>
+              <h1 className='font-inter text-[40px] sm:text-[48px] font-bold tracking-tight text-[#e2e8f0]'>Bach (Bale) Le Xuan</h1>
               <h2 className='pt-[12px] font-mono text-lg font-medium tracking-tight text-[#e2e8f0]'>
                 Fullstack Software Engineer
               </h2>
-              <p className='font-inter w-[320px] pt-[16px] text-[16px] font-light text-[#94a3b8]'>
+              <p className='font-inter max-w-full sm:max-w-[320px] pt-[16px] text-[16px] font-light text-[#94a3b8]'>
                 I build accessible, pixel-perfect digital experiences for the web.
               </p>
 
-              <nav className='pt-[60px]'>
+              <nav className='hidden lg:block pt-[60px]'>
                 <ul className='flex flex-col text-[14px] font-bold tracking-widest text-[#64748b] uppercase'>
                   {navItems.map((item, index) => (
                     <li
@@ -110,7 +110,8 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               </nav>
             </div>
 
-            <ul className='group flex gap-5 pb-[200px] text-[24px] text-slate-300/80'>
+          </div>
+          <ul className='group flex gap-5 mt-8 lg:mt-0 lg:pb-[200px] text-[24px] text-slate-300/80'>
               <li className='hover:text-slate-200'>
                 <a href='https://github.com/bachlex03' target='_blank' rel='noopener noreferrer'>
                   <FaGithub />
@@ -127,10 +128,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                 </a>
               </li>
             </ul>
-          </div>
         </header>
 
-        <div className='w-1/2'>
+        <main className='pt-16 lg:w-1/2 lg:py-[96px] lg:pt-[96px]'>
           {/* About */}
           <section id='about' className='pb-[96px]'>
             <p className='pb-4 text-[16px] leading-relaxed text-slate-400'>
@@ -179,10 +179,10 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
             <div className='space-y-6'>
               <FocusItem
                 itemName='experience-0'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
                 {/* Duration */}
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <div className=''>
                     <span className='text-xs font-bold tracking-wider text-slate-500 uppercase transition-colors duration-300 group-hover:text-slate-400'>
                       <span>Mar 2024<br /><span>-</span><br /></span>
@@ -192,7 +192,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                 </div>
 
                 {/* Content */}
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-3 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <span className='hover:cursor-pointer'>
@@ -255,9 +255,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Project 1: Microservices E-commerce */}
               <FocusItem
                 itemName='project-0'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <div className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-colors duration-300 group-hover:border-slate-600/50'>
                     <img
                       src='/assets/images/image-1.png'
@@ -267,7 +267,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     <div className='absolute inset-0 bg-slate-900/20 transition-colors duration-300 group-hover:bg-slate-900/10'></div>
                   </div>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       Microservices / Multi-Tenancy E-commerce
@@ -329,9 +329,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Project 2: HOA Accounting System */}
               <FocusItem
                 itemName='project-1'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <div className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-colors duration-300 group-hover:border-slate-600/50'>
                     <img
                       src='/assets/images/image-1.png'
@@ -341,7 +341,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     <div className='absolute inset-0 bg-slate-900/20 transition-colors duration-300 group-hover:bg-slate-900/10'></div>
                   </div>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       HOA Accounting System | Solana Blockchain
@@ -370,9 +370,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Project 3: Portfolio v3 */}
               <FocusItem
                 itemName='project-2'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <div className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-colors duration-300 group-hover:border-slate-600/50'>
                     <img
                       src='/assets/images/image-1.png'
@@ -382,7 +382,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     <div className='absolute inset-0 bg-slate-900/20 transition-colors duration-300 group-hover:bg-slate-900/10'></div>
                   </div>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       Portfolio v3
@@ -411,9 +411,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Project 4: Next/Nest Monorepo Starter Kit */}
               <FocusItem
                 itemName='project-3'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <div className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-colors duration-300 group-hover:border-slate-600/50'>
                     <img
                       src='/assets/images/image-1.png'
@@ -423,7 +423,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     <div className='absolute inset-0 bg-slate-900/20 transition-colors duration-300 group-hover:bg-slate-900/10'></div>
                   </div>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       Next/Nest Monorepo Starter Kit | Cursor/Claude/Kiro
@@ -457,9 +457,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Certificate 1: Cloud Developing */}
               <FocusItem
                 itemName='certificate-0'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <a href='https://www.credly.com/badges/98b69d8d-a0cf-4386-8125-923372ba1a1a/public_url' target='_blank' rel='noopener noreferrer' className='block'>
                     <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
                       <img
@@ -471,7 +471,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     </div>
                   </a>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <a href='https://www.credly.com/badges/98b69d8d-a0cf-4386-8125-923372ba1a1a/public_url' target='_blank' rel='noopener noreferrer' className='hover:cursor-pointer'>
@@ -504,9 +504,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Certificate 2: Cloud Data Pipeline Builder */}
               <FocusItem
                 itemName='certificate-1'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <a href='https://www.credly.com/badges/c5cdc6a6-0d8f-4dfa-8b2b-736305c94913/public_url' target='_blank' rel='noopener noreferrer' className='block'>
                     <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
                       <img
@@ -518,7 +518,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     </div>
                   </a>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <a href='https://www.credly.com/badges/c5cdc6a6-0d8f-4dfa-8b2b-736305c94913/public_url' target='_blank' rel='noopener noreferrer' className='hover:cursor-pointer'>
@@ -551,9 +551,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Certificate 3: Microservices and CI/CD */}
               <FocusItem
                 itemName='certificate-2'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <a href='https://www.credly.com/badges/793a3126-e26e-4f43-8cab-a2de0b5c6192/public_url' target='_blank' rel='noopener noreferrer' className='block'>
                     <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
                       <img
@@ -565,7 +565,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     </div>
                   </a>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <a href='https://www.credly.com/badges/793a3126-e26e-4f43-8cab-a2de0b5c6192/public_url' target='_blank' rel='noopener noreferrer' className='hover:cursor-pointer'>
@@ -598,9 +598,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Certificate 4: Cloud Web Application Builder */}
               <FocusItem
                 itemName='certificate-3'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <a href='https://www.credly.com/badges/cfbe537b-22e6-4a0e-92dc-eaacf1b5c049/public_url' target='_blank' rel='noopener noreferrer' className='block'>
                     <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
                       <img
@@ -612,7 +612,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     </div>
                   </a>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <a href='https://www.credly.com/badges/cfbe537b-22e6-4a0e-92dc-eaacf1b5c049/public_url' target='_blank' rel='noopener noreferrer' className='hover:cursor-pointer'>
@@ -645,9 +645,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Certificate 5: Intro to Cloud Semester 2 */}
               <FocusItem
                 itemName='certificate-4'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <a href='https://www.credly.com/badges/1538d88b-b934-4b95-b19b-f72b26b4bc7e/public_url' target='_blank' rel='noopener noreferrer' className='block'>
                     <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
                       <img
@@ -659,7 +659,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     </div>
                   </a>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <a href='https://www.credly.com/badges/1538d88b-b934-4b95-b19b-f72b26b4bc7e/public_url' target='_blank' rel='noopener noreferrer' className='hover:cursor-pointer'>
@@ -692,9 +692,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Certificate 6: Intro to Cloud Semester 1 */}
               <FocusItem
                 itemName='certificate-5'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <a href='https://www.credly.com/badges/6a6f483a-4f33-4ba1-a1ff-59b072bdd837/public_url' target='_blank' rel='noopener noreferrer' className='block'>
                     <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
                       <img
@@ -706,7 +706,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     </div>
                   </a>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <a href='https://www.credly.com/badges/6a6f483a-4f33-4ba1-a1ff-59b072bdd837/public_url' target='_blank' rel='noopener noreferrer' className='hover:cursor-pointer'>
@@ -739,9 +739,9 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               {/* Certificate 7: TOEIC 750 */}
               <FocusItem
                 itemName='certificate-6'
-                baseClasses='group relative grid grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
-                <div className='col-span-2'>
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
                   <a href='https://www.linkedin.com/learning/certificates/1234567890' target='_blank' rel='noopener noreferrer' className='block'>
                     <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
                       <div className='flex h-full w-full items-center justify-center p-2'>
@@ -754,7 +754,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                     </div>
                   </a>
                 </div>
-                <div className='col-span-6 pl-4'>
+                <div className='sm:col-span-6 sm:pl-4'>
                   <div className='mb-2 flex items-center'>
                     <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
                       <a href='https://www.linkedin.com/learning/certificates/1234567890' target='_blank' rel='noopener noreferrer' className='hover:cursor-pointer'>
@@ -807,7 +807,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               </p>
             </div>
           </section>
-        </div>
+        </main>
       </div>
     </FocusModeProvider>
   )
