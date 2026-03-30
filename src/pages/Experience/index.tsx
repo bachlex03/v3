@@ -935,12 +935,17 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/30 backdrop-blur-sm p-4 sm:p-8"
-            onClick={closeLightbox}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8"
           >
+            {/* Backdrop: Clickable background to close lightbox */}
+            <div 
+              className="absolute inset-0 bg-black/95 backdrop-blur-md cursor-zoom-out" 
+              onClick={closeLightbox} 
+            />
             <button
               onClick={closeLightbox}
-              className="fixed top-6 right-6 z-[110] p-3 text-slate-400 hover:text-white transition-colors bg-slate-900/50 rounded-full border border-slate-800 hover:bg-slate-800 shadow-lg"
+              className="fixed top-4 right-4 sm:top-6 sm:right-6 z-[110] p-2 sm:p-3 text-slate-400 hover:text-white transition-colors bg-slate-900/50 rounded-full border border-slate-800 hover:bg-slate-800 shadow-lg"
             >
               <IoClose size={24} />
             </button>
@@ -960,38 +965,54 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
             </button>
 
             <motion.div
-              initial={{ scale: 0.95, opacity: 0 }}
+              initial={{ scale: 0.98, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.95, opacity: 0 }}
-              className="relative max-w-6xl w-fit flex flex-col items-center gap-4"
+              exit={{ scale: 0.98, opacity: 0 }}
+              transition={{ duration: 0.15 }}
+              className="relative z-[105] max-w-6xl w-full flex flex-col items-center gap-4 sm:gap-6 pointer-events-auto"
+              onClick={(e) => e.stopPropagation()}
             >
               <div 
-                className="relative group flex items-center justify-center rounded-xl border border-slate-800/50 bg-slate-900/90 shadow-2xl overflow-visible"
+                className="relative group flex items-center justify-center rounded-xl border border-slate-800/50 bg-slate-900/90 shadow-2xl overflow-hidden sm:min-h-[400px]"
                 onClick={(e) => e.stopPropagation()}
               >
-                <img
-                  src={microservicesImages[lightbox.index]}
-                  alt={`Project image ${lightbox.index + 1}`}
-                  className="max-w-full max-h-[50vh] sm:max-h-[60vh] object-contain select-none rounded-lg"
-                />
-                
-                {/* Mobile controls */}
-                <div className="flex lg:hidden absolute -bottom-14 left-0 right-0 p-2 justify-center gap-12">
-                   <button onClick={prevImage} className="p-3 text-white bg-slate-900/90 rounded-full border border-slate-700 shadow-xl active:scale-95 transition-all"><IoChevronBack size={20} /></button>
-                   <button onClick={nextImage} className="p-3 text-white bg-slate-900/90 rounded-full border border-slate-700 shadow-xl active:scale-95 transition-all"><IoChevronForward size={20} /></button>
-                </div>
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.img
+                    key={lightbox.index}
+                    src={microservicesImages[lightbox.index]}
+                    alt={`Project image ${lightbox.index + 1}`}
+                    drag="x"
+                    dragConstraints={{ left: 0, right: 0 }}
+                    dragElastic={0.6}
+                    onDragEnd={(_, info) => {
+                      const swipeThreshold = 50
+                      if (info.offset.x < -swipeThreshold) {
+                        nextImage()
+                      } else if (info.offset.x > swipeThreshold) {
+                        prevImage()
+                      }
+                    }}
+                    initial={{ x: 70, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -70, opacity: 0 }}
+                    transition={{ type: 'spring', damping: 35, stiffness: 500, mass: 0.5 }}
+                    className="max-w-full max-h-[65vh] sm:max-h-[75vh] object-contain select-none rounded-lg shadow-black/50 shadow-2xl cursor-grab active:cursor-grabbing"
+                  />
+                </AnimatePresence>
               </div>
 
               <div 
-                className="flex flex-col items-center text-center mt-2"
+                className="flex flex-col items-center text-center mt-6 sm:mt-2"
                 onClick={(e) => e.stopPropagation()}
               >
-                <span className="text-teal-300/80 font-mono text-[10px] font-bold tracking-[0.2em] mb-1">
-                  {lightbox.index + 1} / {microservicesImages.length}
-                </span>
-                <p className="text-slate-100 text-sm sm:text-base font-semibold uppercase tracking-[0.2em] px-8 bg-gradient-to-r from-teal-300 to-blue-400 bg-clip-text text-transparent drop-shadow-sm truncate max-w-full">
-                  {microservicesImages[lightbox.index].split('/').pop()?.split('.')[0].replace(/_/g, ' ')}
-                </p>
+                <div className="flex flex-col items-center gap-1">
+                  <span className="text-teal-300 font-mono text-[10px] sm:text-xs font-bold tracking-[0.2em]">
+                    {String(lightbox.index + 1).padStart(2, '0')} / {String(microservicesImages.length).padStart(2, '0')}
+                  </span>
+                  <p className="text-slate-100 text-[13px] sm:text-base font-semibold uppercase tracking-[0.2em] px-4 sm:px-8 bg-gradient-to-r from-teal-200 to-blue-300 bg-clip-text text-transparent drop-shadow-sm line-clamp-1">
+                    {microservicesImages[lightbox.index].split('/').pop()?.split('.')[0].replace(/_/g, ' ')}
+                  </p>
+                </div>
               </div>
 
               {/* Thumbnails */}
