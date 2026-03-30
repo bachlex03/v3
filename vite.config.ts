@@ -24,6 +24,7 @@ export default defineConfig({
       '~': path.resolve(__dirname, './src'),
     },
   },
+  // @ts-expect-error - vitest test config mismatch
   test: {
     projects: [
       {

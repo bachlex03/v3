@@ -6,7 +6,7 @@ type ContactPageProps = object
 
 const ContactPage: FC<ContactPageProps> = () => {
   const Icons = {
-    linkedin: (props: any) => (
+    linkedin: () => (
       <svg width='86' height='86' viewBox='0 0 86 86' xmlns='http://www.w3.org/2000/svg'>
         <rect
           width='86'
@@ -24,7 +24,7 @@ const ContactPage: FC<ContactPageProps> = () => {
         />
       </svg>
     ),
-    github: (props: any) => (
+    github: () => (
       <svg width='86' height='86' viewBox='0 0 86 86' xmlns='http://www.w3.org/2000/svg'>
         <rect
           width='86'

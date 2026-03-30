@@ -228,9 +228,9 @@ const HomePage: FC<HomePageProps> = () => {
           <div className='mb-5 lg:max-w-[800px]'>
             <p className='inline-block text-[18px] font-light tracking-tight text-slate-400'>
               I'm a &nbsp;
-              <p className='text-primary inline-block text-[18px] font-normal tracking-tight'>
+              <span className='text-primary inline-block text-[18px] font-normal tracking-tight'>
                 passionate software engineer&nbsp;
-              </p>
+              </span>
               specializing in fullstack web development. Currently, I am focused on building scalable products and am
               based in Ho Chi Minh City (HCMC), Viet Nam📍.
             </p>
@@ -243,8 +243,8 @@ const HomePage: FC<HomePageProps> = () => {
           </span>
 
           <div className='grid grid-cols-2 gap-5 text-center lg:grid-cols-4'>
-            {stats.map((stat) => (
-              <span className='flex items-center gap-2'>
+            {stats.map((stat, index) => (
+              <span key={index} className='flex items-center gap-2'>
                 <span className='text-primary inline-block min-w-[112px] font-mono text-4xl leading-4 font-extrabold lg:w-fit lg:min-w-auto xl:text-6xl'>
                   {stat.num}
                 </span>

@@ -1,0 +1,69 @@
+/* Loader - Full screen intro animation */
+
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(10, 25, 47);
+  z-index: 9999;
+}
+
+.logoWrapper {
+  width: 100px;
+  max-width: 100px;
+}
+
+.logoSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+}
+
+/* ── Hexagon stroke-draw ── */
+
+.hexagon {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  transition: none;
+}
+
+.hexagonAnimate {
+  animation: drawHexagon 1.2s ease-in-out forwards;
+}
+
+@keyframes drawHexagon {
+  0% {
+    stroke-dashoffset: 300;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ── Letter B fade-in ── */
+
+.letter {
+  opacity: 0;
+  transition: none;
+}
+
+.letterAnimate {
+  animation: fadeInLetter 0.5s ease-in forwards 1s;
+}
+
+@keyframes fadeInLetter {
+  0% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -19,7 +19,7 @@ export const FloatingDock = ({
   desktopClassName?: string
   mobileClassName?: string
 }) => {
-  const { isScrollingDown, isAtTop } = useScrollDirection()
+  const { isScrollingDown } = useScrollDirection()
 
   return (
     <>
@@ -27,13 +27,11 @@ export const FloatingDock = ({
         items={items}
         className={desktopClassName}
         isScrollingDown={isScrollingDown}
-        isAtTop={isAtTop}
       />
       <FloatingDockMobile
         items={items}
         className={mobileClassName}
         isScrollingDown={isScrollingDown}
-        isAtTop={isAtTop}
       />
     </>
   )
@@ -43,12 +41,10 @@ const FloatingDockMobile = ({
   items,
   className,
   isScrollingDown,
-  isAtTop,
 }: {
   items: { title: string; icon: ReactNode; href: string }[]
   className?: string
   isScrollingDown: boolean
-  isAtTop: boolean
 }) => {
   const [open, setOpen] = useState(false)
   return (
@@ -111,12 +107,10 @@ const FloatingDockDesktop = ({
   items,
   className,
   isScrollingDown,
-  isAtTop,
 }: {
   items: { title: string; icon: ReactNode; href: string }[]
   className?: string
   isScrollingDown: boolean
-  isAtTop: boolean
 }) => {
   const mouseX = useMotionValue(Infinity)
   return (

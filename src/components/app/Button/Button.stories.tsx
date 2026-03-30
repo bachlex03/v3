@@ -3,18 +3,6 @@ import { useState } from 'react'
 import Button, { buttonVariants } from './index'
 import { FiDownload, FiArrowRight, FiPlus, FiHeart } from 'react-icons/fi'
 
-// Sample icons for demonstration
-const SampleIcon = () => (
-  <svg className='h-4 w-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M12 6v6m0 0v6m0-6h6m-6 0H6' />
-  </svg>
-)
-
-const ArrowIcon = () => (
-  <svg className='h-4 w-4' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-    <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 7l5 5m0 0l-5 5m5-5H6' />
-  </svg>
-)
 
 const meta: Meta<typeof Button> = {
   title: 'Components/App/Button',
