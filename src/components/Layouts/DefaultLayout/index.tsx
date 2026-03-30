@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import { useEffect, type FC } from 'react'
-import MouseGradientLayout from '~/components/layouts/MouseGradientLayout'
+import MouseGradientLayout from '~/components/Layouts/MouseGradientLayout'
 import type { TLayoutProps } from '~/domain/ui/types/TLayoutProps'
 
 type Props = TLayoutProps

@@ -1,5 +1,5 @@
 import { HomePage, ExperiencePage, ContactPage } from '~/pages'
-import { HeaderOnlyLayout } from '~/components/layouts'
+import { HeaderOnlyLayout } from '~/components/Layouts'
 import type { TLayoutProps } from '~/domain/ui/types/TLayoutProps'
 import type { ComponentType } from 'react'
 
@@ -16,7 +16,7 @@ const publicRoutes: Route[] = [
     layout: HeaderOnlyLayout,
   },
   {
-    path: '/experience',
+    path: '/resume',
     component: ExperiencePage,
     layout: HeaderOnlyLayout,
   },

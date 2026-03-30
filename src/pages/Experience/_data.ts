@@ -29,29 +29,21 @@ export const personalInfo = [
 
 export const experiences = [
   {
-    position: 'Fullstack Blockchain Engineer',
-    company: 'QKIT',
-    duration: 'Jan 2025 - Present',
+    position: 'Fullstack Software Engineer',
+    company: 'QKIT Software',
+    duration: 'Mar 2024 - Oct 2025',
     description:
-      'Develop and maintain blockchain applications on Solana, focusing on smart contract development using Rust and Program Derived Addresses (PDA). Build responsive frontend interfaces with React and TypeScript, implementing state management solutions and ensuring seamless user experiences for decentralized applications.',
-    techs: ['Rust', 'Solana', 'PDA', 'TypeScript', 'Vite', 'React', 'Redux', 'RTK Query', 'Tailwind CSS', 'ShadcnUI'],
-  },
-  {
-    position: 'Backend Intership',
-    company: 'QKIT',
-    duration: 'Feb 2024 - May 2024',
-    description:
-      'Contributed to backend development using modern technologies including Node.js, Nest.js, and C# with ASP.NET Core. Gained hands-on experience with Entity Framework Core for database operations, containerization with Docker, and building RESTful APIs following industry best practices.',
-    techs: ['Node.js', 'Nest.js', 'TypeScript', 'C#', 'ASP.NET Core', 'Entity Framework Core', 'PostgreSQL', 'Docker'],
+      'Developed applications for domestic and international markets, built Solana smart contracts with Rust/Anchor, and built a C# ASP.NET digital signature server. Maintained an EMR system with 100+ tables, established scalable architectures for NextJS/NestJS using DDD, and developed an MVP fraud detection backend integrating AWS, Python, and OpenAPI.',
+    techs: ['NestJS', 'Next.js', 'React', 'C#', 'Python', 'Rust', 'Solana', 'Anchor', 'PostgreSQL', 'Redis', 'Docker', 'Firebase', 'Github action', 'AWS'],
   },
 ]
 
 export const projects = [
   {
-    title: 'Fullstack Microservices e-commerce',
+    title: 'Microservices / Multi-Tenancy E-commerce',
     image: '/assets/images/image-1.png',
     description:
-      'Enterprise-grade e-commerce platform built with microservices architecture. Features include user authentication with Keycloak, event-driven communication via RabbitMQ, comprehensive monitoring with ELK stack, and CI/CD pipeline deployment on Kubernetes. Implements modern security practices with OAuth 2.0 and OpenID Connect.',
+      'Engineered an e-commerce platform using a microservices architecture to handle high-traffic requests. Supports a multi-tenancy architecture for multiple business branches with a Solana blockchain payment integration. Developed 5 core microservices using YARP API Gateway, Keycloak Identity Server for auth, gRPC, RabbitMQ, and deployed 15+ containers via Jenkins CI/CD.',
     techs: [
       'C#',
       'ASP.NET Core 8',

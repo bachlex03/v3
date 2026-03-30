@@ -3,14 +3,10 @@ import { useEffect, type FC } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 
 import routes from '~/routes'
-import { DefaultLayout } from './components/layouts'
+import { DefaultLayout } from './components/Layouts'
 import type { TLayoutProps } from './domain/ui/types/TLayoutProps'
 
 function App() {
-  useEffect(() => {
-    console.log('App rendered')
-  }, [])
-
   return (
     <Router>
       <Routes>

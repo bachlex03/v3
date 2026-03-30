@@ -72,7 +72,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
             <div className=''>
               <h1 className='font-inter text-[48px] font-bold tracking-tight text-[#e2e8f0]'>Bach (Bale) Le Xuan</h1>
               <h2 className='pt-[12px] font-mono text-lg font-medium tracking-tight text-[#e2e8f0]'>
-                Fullstack Blockchain Engineer
+                Fullstack Software Engineer
               </h2>
               <p className='font-inter w-[320px] pt-[16px] text-[16px] font-light text-[#94a3b8]'>
                 I build accessible, pixel-perfect digital experiences for the web.
@@ -116,7 +116,7 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                 </a>
               </li>
               <li className='hover:text-slate-200'>
-                <a href='https://www.linkedin.com/in/lxbach1608/' target='_blank' rel='noopener noreferrer'>
+                <a href='https://www.linkedin.com/in/lxbachit03/' target='_blank' rel='noopener noreferrer'>
                   <FaLinkedinIn />
                 </a>
               </li>
@@ -132,24 +132,16 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
         <div className='w-1/2'>
           <section id='about' className='pb-[96px]'>
             <p className='pb-4 text-[16px] leading-relaxed text-slate-400'>
-              I'm a developer passionate about crafting accessible, pixel-perfect user interfaces that blend thoughtful
-              design with robust engineering. My favorite work lies at the intersection of design and development,
-              creating experiences that not only look great but are meticulously built for performance and usability.
+              I'm a Fullstack Software Engineer with a rigorous foundation from the Ho Chi Minh University of Technology and Education (HCMUTE). I am extremely passionate about crafting scalable architectures, seamless user interfaces, and robust backend systems that blend thoughtful design with rigorous engineering.
             </p>
             <p className='pb-4 text-[16px] leading-relaxed text-slate-400'>
-              Currently, I'm a Senior Front-End Engineer at QKIT, specializing in accessibility. I contribute to the
-              creation and maintenance of UI components that power QKIT's frontend, ensuring our platform meets web
-              accessibility standards and best practices to deliver an inclusive user experience.
+              Most recently, I've been a Fullstack Software Engineer at QKIT Software, developing comprehensive applications for local and international markets. My role spans across establishing scalable architectures using NestJS/Next.js, maintaining heavily optimized databases, cloud engineering with AWS, and writing decentralized smart contracts on the Solana blockchain.
             </p>
             <p className='pb-4 text-[16px] leading-relaxed text-slate-400'>
-              In the past, I've had the opportunity to develop software across a variety of settings — from advertising
-              agencies and large corporations to start-ups and small digital product studios. Additionally, I also
-              released a comprehensive video course a few years ago, guiding learners through building a web app with
-              the Spotify API.
+              My academic and professional journey has taught me how to tackle significant engineering challenges — from multi-tenancy e-commerce microservices and digital signature services to MVP fraud detection integrations. I aim to create experiences that are deeply functional, scalable, and reliable.
             </p>
             <p className='pb-4 text-[16px] leading-relaxed text-slate-400'>
-              In my spare time, I'm usually climbing, reading, hanging out with my wife and two cats, or running around
-              Hyrule searching for Korok seeds.
+              When I'm not coding, you can find me exploring new technologies or continually pushing my limits as a fast-learning and disciplined software engineer in Ho Chi Minh City.
             </p>
 
             <ul className='mt-8'>

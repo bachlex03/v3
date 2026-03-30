@@ -231,7 +231,7 @@ const HomePage: FC<HomePageProps> = () => {
               <p className='text-primary inline-block text-[18px] font-normal tracking-tight'>
                 passionate software engineer&nbsp;
               </p>
-              specializing in building exceptional digital experiences. Currently, i'm focused on building product and
+              specializing in fullstack web development. Currently, I am focused on building scalable products and am
               based in Ho Chi Minh City (HCMC), Viet Nam📍.
             </p>
           </div>
@@ -277,7 +277,7 @@ const HomePage: FC<HomePageProps> = () => {
                 product for society.
               </p>
               <p className='mb-4 leading-relaxed text-[#8892b0]'>
-                Fast-forward to today, I'm a dedicated student currently enrolled at the Ho Chi Minh City University of
+                Fast-forward to today, I'm a dedicated Fullstack Engineer currently enrolled at the Ho Chi Minh City University of
                 Technology and Education (HCMUTE). My academic journey at HCMUTE has been a remarkable experience filled
                 with learning, growth, and exciting challenges. As I pursue my education in this esteemed institution, I
                 am passionate about Information and Technology and continually strive to expand my knowledge and

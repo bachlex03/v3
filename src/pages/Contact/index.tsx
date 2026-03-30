@@ -52,7 +52,7 @@ const ContactPage: FC<ContactPageProps> = () => {
               baseClasses='group flex items-center justify-center transition-all duration-500 ease-in-out'
             >
               <Icons.linkedin />
-              <FlipLink href='https://www.linkedin.com/in/lxbach1608/'>Linkedin</FlipLink>
+              <FlipLink href='https://www.linkedin.com/in/lxbachit03/'>Linkedin</FlipLink>
             </FocusItem>
             <FocusItem
               itemName='github'

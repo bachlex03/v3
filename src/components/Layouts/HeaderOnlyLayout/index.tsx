@@ -1,7 +1,5 @@
-/* eslint-disable no-console */
 import { useEffect, type FC } from 'react'
-import MouseGradientLayout from '~/components/layouts/MouseGradientLayout'
-import Header from '~/components/layouts/_components/Header'
+import MouseGradientLayout from '~/components/Layouts/MouseGradientLayout'
 import type { TLayoutProps } from '~/domain/ui/types/TLayoutProps'
 import { IconBrandGithub, IconFileCv, IconBrandLinkedin, IconHome, IconMail } from '@tabler/icons-react'
 import { FloatingDock } from '~/components/3rd/aceternity/floating-dock'
@@ -20,9 +18,9 @@ const HeaderOnlyLayout: FC<Props> = ({ children }) => {
       href: '/',
     },
     {
-      title: 'Experience',
+      title: 'Resume',
       icon: <IconFileCv className='h-full w-full text-[#64ffda]' />,
-      href: '/experience',
+      href: '/resume',
     },
     {
       title: 'Contact',
@@ -37,7 +35,7 @@ const HeaderOnlyLayout: FC<Props> = ({ children }) => {
     {
       title: 'LinkedIn',
       icon: <IconBrandLinkedin className='h-full w-full text-[#64ffda]' />,
-      href: 'https://www.linkedin.com/in/lxbach1608/',
+      href: 'https://www.linkedin.com/in/lxbachit03/',
     },
   ]
 
