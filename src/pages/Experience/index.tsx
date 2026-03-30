@@ -1,16 +1,86 @@
-import { useRef, useState, useEffect, type FC, type MouseEventHandler } from 'react'
+import React, { useRef, useState, useEffect, useCallback, type FC, type MouseEventHandler } from 'react'
 import { FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import { BsArrowDownRight } from 'react-icons/bs'
 import { FiInstagram } from 'react-icons/fi'
+import { IoClose, IoChevronBack, IoChevronForward } from 'react-icons/io5'
+import { motion, AnimatePresence } from 'framer-motion'
 import { FocusModeProvider, FocusItem } from '~/components/app'
 
 type ExperiencePageProps = object
 
-const navItems = ['about', 'experience', 'projects', 'certificates']
+const navItems = ['about', 'experience', 'projects', 'certificates', 'education']
+
+const microservicesImages = [
+  '/assets/images/microservices/home_page.png',
+  '/assets/images/microservices/admin_dashboard.png',
+  '/assets/images/microservices/product_details_page.png',
+  '/assets/images/microservices/basket_page.png',
+  '/assets/images/microservices/checkout_page_1.png',
+  '/assets/images/microservices/checkout_page_2_blockchain_payment.png',
+  '/assets/images/microservices/main_sell_page.png',
+  '/assets/images/microservices/online_orders_table.png',
+  '/assets/images/microservices/revenue_chart.png',
+  '/assets/images/microservices/hrm_table.png',
+  '/assets/images/microservices/warehouse_table.png',
+  '/assets/images/microservices/event_page_1.png',
+  '/assets/images/microservices/event_page_2.png',
+  '/assets/images/microservices/microservices_internal_request_tracking.png',
+  '/assets/images/microservices/microservices_logging.png'
+]
 
 const ExperiencePage: FC<ExperiencePageProps> = () => {
   const navRefs = useRef<Array<HTMLElement | null>>([])
   const [activeSection, setActiveSection] = useState<string>('about')
+  const [lightbox, setLightbox] = useState<{ isOpen: boolean; index: number }>({
+    isOpen: false,
+    index: 0
+  })
+
+  const openLightbox = (index: number) => {
+    setLightbox({ isOpen: true, index })
+  }
+
+  const closeLightbox = useCallback(() => {
+    setLightbox((prev) => ({ ...prev, isOpen: false }))
+  }, [])
+
+  const nextImage = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation()
+    setLightbox((prev) => ({
+      ...prev,
+      index: (prev.index + 1) % microservicesImages.length
+    }))
+  }, [])
+
+  const prevImage = useCallback((e?: React.MouseEvent) => {
+    e?.stopPropagation()
+    setLightbox((prev) => ({
+      ...prev,
+      index: (prev.index - 1 + microservicesImages.length) % microservicesImages.length
+    }))
+  }, [])
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightbox.isOpen) return
+      
+      if (e.key === 'Escape') closeLightbox()
+      if (e.key === 'ArrowRight') nextImage()
+      if (e.key === 'ArrowLeft') prevImage()
+    }
+
+    if (lightbox.isOpen) {
+      document.body.style.overflow = 'hidden'
+      window.addEventListener('keydown', handleKeyDown)
+    } else {
+      document.body.style.overflow = 'auto'
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown)
+    }
+  }, [lightbox.isOpen, closeLightbox, nextImage, prevImage])
 
   // Scroll spy effect
   useEffect(() => {
@@ -258,13 +328,18 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
                 baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
               >
                 <div className='sm:col-span-2 mb-2 sm:mb-0'>
-                  <div className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-colors duration-300 group-hover:border-slate-600/50'>
+                  <div 
+                    className='relative h-[75px] w-full overflow-hidden rounded border border-slate-700/50 transition-all duration-300 group-hover:border-slate-600/50 cursor-pointer lg:hover:ring-2 lg:hover:ring-teal-300'
+                    onClick={() => openLightbox(0)}
+                  >
                     <img
-                      src='/assets/images/image-1.png'
+                      src='/assets/images/microservices/home_page.png'
                       alt='Microservices / Multi-Tenancy E-commerce'
                       className='h-full w-full object-cover transition-transform duration-300 group-hover:scale-105'
                     />
-                    <div className='absolute inset-0 bg-slate-900/20 transition-colors duration-300 group-hover:bg-slate-900/10'></div>
+                    <div className='absolute inset-0 bg-slate-900/40 transition-colors duration-300 group-hover:bg-slate-900/20 flex items-center justify-center opacity-0 group-hover:opacity-100'>
+                      <span className='text-[10px] font-bold text-white uppercase tracking-widest'>View Gallery</span>
+                    </div>
                   </div>
                 </div>
                 <div className='sm:col-span-6 sm:pl-4'>
@@ -775,6 +850,49 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
               </FocusItem>
             </div>
           </section>
+          {/* Education Section */}
+          <section id='education' className='pt-[96px] pb-[96px]'>
+            <div className='space-y-6'>
+              <FocusItem
+                itemName='education-0'
+                baseClasses='group relative grid grid-cols-1 sm:grid-cols-8 gap-1 rounded-lg p-6 transition-all duration-300 hover:bg-slate-800/50 hover:shadow-lg hover:shadow-blue-500/5'
+              >
+                <div className='sm:col-span-2 mb-2 sm:mb-0'>
+                  <div className='relative h-[100px] w-full cursor-pointer overflow-hidden rounded border border-slate-700/50 bg-slate-800/30 transition-colors duration-300 group-hover:border-slate-600/50'>
+                    <img src='/assets/images/HCMUTE_Logo.png' alt='HCMUTE' className='h-full w-full bg-sky-50 object-contain p-2 transition-transform duration-300 group-hover:scale-105' />
+                    <div className='absolute inset-0 bg-slate-900/10 transition-colors duration-300 group-hover:bg-slate-900/5'></div>
+                  </div>
+                </div>
+                <div className='sm:col-span-6 sm:pl-4'>
+                  <div className='mb-2 flex items-center'>
+                    <h3 className='text-[16px] font-semibold text-slate-200 transition-colors duration-300 group-hover:text-teal-300'>
+                      <span className='hover:cursor-pointer'>
+                        University of Technology and Education (HCMUTE)
+                      </span>
+                    </h3>
+                    <div className='ml-2 transition-opacity duration-300 group-hover:opacity-100'>
+                      <BsArrowDownRight className='transform text-sm text-teal-300 transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1' />
+                    </div>
+                  </div>
+                  <p className='mb-2 text-xs font-bold tracking-wider text-slate-500 uppercase transition-colors duration-300 group-hover:text-slate-400'>
+                    Aug 2021 - Feb 2026
+                  </p>
+                  <p className='mb-4 text-[14px] leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300'>
+                    Bachelor of Engineering in Information Technology
+                    <br />
+                    <span className='font-semibold text-slate-200'>GPA: 3.55</span>
+                  </p>
+                  <ul className='mb-4 space-y-2 text-[14px] leading-relaxed text-slate-400 transition-colors duration-300 group-hover:text-slate-300'>
+                    <li className='flex gap-2'>
+                      <span className='mt-1.5 text-teal-300'>▹</span>
+                      <span>Awarded <span className='font-semibold text-slate-200'>2 academic scholarships</span> for outstanding performance.</span>
+                    </li>
+                  </ul>
+                </div>
+                <div className='pointer-events-none absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-transparent to-blue-500/5 opacity-0 transition-opacity duration-300 group-hover:opacity-100'></div>
+              </FocusItem>
+            </div>
+          </section>
 
           <section id='end' className='pt-[48px] pb-[96px]'>
             <div className='max-w-lg'>
@@ -809,6 +927,101 @@ const ExperiencePage: FC<ExperiencePageProps> = () => {
           </section>
         </main>
       </div>
+
+      {/* Carousel Lightbox */}
+      <AnimatePresence>
+        {lightbox.isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/30 backdrop-blur-sm p-4 sm:p-8"
+            onClick={closeLightbox}
+          >
+            <button
+              onClick={closeLightbox}
+              className="fixed top-6 right-6 z-[110] p-3 text-slate-400 hover:text-white transition-colors bg-slate-900/50 rounded-full border border-slate-800 hover:bg-slate-800 shadow-lg"
+            >
+              <IoClose size={24} />
+            </button>
+
+            <button
+              onClick={prevImage}
+              className="fixed left-6 top-1/2 -translate-y-1/2 z-[110] p-3 bg-slate-900/60 text-slate-400 hover:text-teal-300 hover:bg-slate-800 transition-all rounded-full hidden lg:flex items-center justify-center border border-slate-700/50 shadow-xl backdrop-blur-md"
+            >
+              <IoChevronBack size={28} />
+            </button>
+
+            <button
+              onClick={nextImage}
+              className="fixed right-6 top-1/2 -translate-y-1/2 z-[110] p-3 bg-slate-900/60 text-slate-400 hover:text-teal-300 hover:bg-slate-800 transition-all rounded-full hidden lg:flex items-center justify-center border border-slate-700/50 shadow-xl backdrop-blur-md"
+            >
+              <IoChevronForward size={28} />
+            </button>
+
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              className="relative max-w-6xl w-fit flex flex-col items-center gap-4"
+            >
+              <div 
+                className="relative group flex items-center justify-center rounded-xl border border-slate-800/50 bg-slate-900/90 shadow-2xl overflow-visible"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <img
+                  src={microservicesImages[lightbox.index]}
+                  alt={`Project image ${lightbox.index + 1}`}
+                  className="max-w-full max-h-[50vh] sm:max-h-[60vh] object-contain select-none rounded-lg"
+                />
+                
+                {/* Mobile controls */}
+                <div className="flex lg:hidden absolute -bottom-14 left-0 right-0 p-2 justify-center gap-12">
+                   <button onClick={prevImage} className="p-3 text-white bg-slate-900/90 rounded-full border border-slate-700 shadow-xl active:scale-95 transition-all"><IoChevronBack size={20} /></button>
+                   <button onClick={nextImage} className="p-3 text-white bg-slate-900/90 rounded-full border border-slate-700 shadow-xl active:scale-95 transition-all"><IoChevronForward size={20} /></button>
+                </div>
+              </div>
+
+              <div 
+                className="flex flex-col items-center text-center mt-2"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <span className="text-teal-300/80 font-mono text-[10px] font-bold tracking-[0.2em] mb-1">
+                  {lightbox.index + 1} / {microservicesImages.length}
+                </span>
+                <p className="text-slate-100 text-sm sm:text-base font-semibold uppercase tracking-[0.2em] px-8 bg-gradient-to-r from-teal-300 to-blue-400 bg-clip-text text-transparent drop-shadow-sm truncate max-w-full">
+                  {microservicesImages[lightbox.index].split('/').pop()?.split('.')[0].replace(/_/g, ' ')}
+                </p>
+              </div>
+
+              {/* Thumbnails */}
+              <div 
+                className="flex gap-2 overflow-x-auto py-2 no-scrollbar max-w-full px-6"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="flex gap-2 mx-auto">
+                  {microservicesImages.map((img, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setLightbox({ ...lightbox, index: idx })}
+                      className={`relative w-12 h-12 flex-shrink-0 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                        lightbox.index === idx 
+                          ? 'border-teal-400 scale-105 shadow-[0_0_15px_-5px_rgba(45,212,191,0.5)] z-10' 
+                          : 'border-white/5 opacity-30 hover:opacity-60 hover:scale-105'
+                      }`}
+                    >
+                      <img src={img} className="w-full h-full object-cover" />
+                      {lightbox.index !== idx && (
+                        <div className="absolute inset-0 bg-slate-950/20 group-hover:bg-transparent transition-colors" />
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </FocusModeProvider>
   )
 }
