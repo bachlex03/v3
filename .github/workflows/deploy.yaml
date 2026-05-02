@@ -27,7 +27,7 @@ jobs:
   #         tags: baledev/portfolio:latest
 
   deploy:
-    needs: build-and-push
+    # needs: build-and-push
     runs-on: ubuntu-latest
     steps:
       - name: SSH and Deploy
