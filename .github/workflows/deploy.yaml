@@ -37,6 +37,6 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SERVER_SSH_KEY }}
           script: |
-            cd /repositories/v3/provision
+            cd /repo/v3/provision
             docker compose pull
             docker compose up -d
